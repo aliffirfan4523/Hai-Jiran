@@ -52,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				91679B5029AE489B00AAF8CB /* others.swift */,
-				91679B4E29AE458200AAF8CB /* HomepageView.swift */,
 				912121F129AC686E00F842BD /* Hai_Jiran */,
 				912121F029AC686E00F842BD /* Products */,
 			);
@@ -70,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				912121F229AC686E00F842BD /* Hai_JiranApp.swift */,
+				91679B4E29AE458200AAF8CB /* HomepageView.swift */,
 				912121F429AC686E00F842BD /* ContentView.swift */,
 				912121F629AC686E00F842BD /* Assets.xcassets */,
 				912121F829AC686E00F842BD /* Preview Content */,
