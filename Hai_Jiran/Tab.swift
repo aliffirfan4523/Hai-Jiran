@@ -19,7 +19,7 @@ struct Tabs: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { proxy in
-                VStack(spacing: 0) {
+                VStack() {
                     HStack(spacing: 0) {
                         ForEach(0 ..< tabs.count, id: \.self) { row in
                             Button(action: {
@@ -35,11 +35,11 @@ struct Tabs: View {
                                             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
                                         // Text
                                         Text(tabs[row].title)
-                                            .font(Font.system(size: 18, weight: .semibold))
+                                            .font(Font.system(size: 15, weight: .semibold))
                                             .foregroundColor(Color(0x5bd4a4))
                                             .padding(EdgeInsets(top: 10, leading: 3, bottom: 10, trailing: 15))
                                     }
-                                    .frame(width: fixed ? (geoWidth / CGFloat(tabs.count)) : .none, height: 52)
+                                    .frame(width: fixed ? (geoWidth / CGFloat(tabs.count)) : .none, height: 42)
                                     // Bar Indicator
                                     Rectangle().fill(selectedTab == row ? Color(0x5bd4a4) : Color.clear)
                                         .frame(height: 3)
@@ -57,7 +57,7 @@ struct Tabs: View {
                 }
             }
         }
-        .frame(height: 55)
+        .frame(height: 45)
         .onAppear(perform: {
             UIScrollView.appearance().backgroundColor = UIColor(Color.white)
             UIScrollView.appearance().bounces = fixed ? false : true
@@ -65,15 +65,6 @@ struct Tabs: View {
         .onDisappear(perform: {
             UIScrollView.appearance().bounces = true
         })
-    }
-}
-struct Tabs_Previews: PreviewProvider {
-    static var previews: some View {
-        Tabs(fixed: true,
-             tabs: [.init(icon: Image(systemName: "star.fill"), title: "Tab 1"),
-                    .init(icon: Image(systemName: "star.fill"), title: "Tab 2"),
-                    .init(icon: Image(systemName: "star.fill"), title: "Tab 3")],
-             geoWidth: 375,
-             selectedTab: .constant(0))
+
     }
 }

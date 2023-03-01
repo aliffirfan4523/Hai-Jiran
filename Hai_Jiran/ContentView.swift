@@ -10,137 +10,93 @@ import UIKit
 
 let maincolor = Color(0x5bd4a4)
 struct ContentView: View {
-    @State private var selection = 0
+
+    @State private var selection: String = "house"
+    @State private var tbHeight = CGFloat.zero
+    
+    @State var items = [
+        Item(title: "Map", color: .red, icon: "map.circle", items: SelectionPage(selectedPage: 2)),
+        Item(title: "house", color: .white, icon: "house", items: SelectionPage(selectedPage: 1)),
+        Item(title: "Service", color: .green, icon: "gearshape.2", items: SelectionPage(selectedPage: 0)),
+    ]
+    
+    var selected: Item {
+        items.first { $0.title == selection } ?? items[0]
+    }
     
     var body: some View {
-
-        TabView (selection: $selection){
-            
-            HomeView()
-            .tabItem {
-                Image(systemName: "house")
-                Text("Home")
-            }.background(Color.white)
-            .tag(0)
-            VStack {
-                Text("SOS")
-                .font(.title)
-            Button(action: {
-                // Handle SOS button tap here
-            }) {
-                Text("SOS")
-                    .frame(width: 80, height: 40)
-                    .background(Color.red)
-                    .cornerRadius(10)
-                }
-            }
-            .tabItem {
-                Image(systemName: "exclamationmark.triangle.fill")
-                Text("SOS")
-            }
-            MapView()
-            .tabItem {
-                Image(systemName: "map")
-                Text("Map")
-            }
-        }.accentColor(Color(0x5bd4a4))
-    }
-}
-
-
-struct TabBarButton: View {
-    
-    var systemName: String
-    
-    var body: some View{
-        Button(action: {
-        }, label: {
-            
-            VStack(spacing: 8){
-                
-                Image(systemName)
-                    .resizable()
-                    //Since its asset image...
-                    .renderingMode(.template)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width:28, height: 28)
-            }
-            .frame(maxWidth: .infinity)
-        })
-    }
-}
-
-struct HomeView : View{
-    @State private var selectedTab: Int = 0
-    let tabs : [Tab] = [
-        .init(title: "Whats New?"),
-        .init(title: "Whats New?"),
-        .init(title: "Whats New?")
-    ]
-    var body: some View{
-        VStack(){
-            ZStack{
-                Color(0x5bd4a4)
-                HStack(spacing:15){
-                    Spacer(minLength: 0)
-                    VStack {
-                        Button(action: {}){
-                            Image(systemName: "house")
-                                .font(.system(size: 22))
-                                .foregroundColor(.white)
-                        }.padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 30))
-                        Spacer()
-                        Button(action: {}){
-                            Image(systemName: "house")
-                                .font(.system(size: 22))
-                                .foregroundColor(.white)
-                        }.padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 30))
-                    }
-                }
-                VStack{
-                    Spacer().frame(height: 20)
-                    CircleImage()
-                    Spacer().frame(height: 20)
-                    Text("Hi Ahmad Albab")
-                }
-            }.edgesIgnoringSafeArea(.top)
-                .frame(height: 200)
-            Spacer(minLength: 0)
-            NavigationView{
-                GeometryReader{
-                    geo in
-                    VStack(spacing:0){
-                        //tabs
-                        Tabs(tabs: tabs, geoWidth: geo.size.width, selectedTab: $selectedTab)
-                        //Views
-                        TabView(selection: $selectedTab,
-                            content: {
-                            MapView().tag(0)
-                            HomeView().tag(1)
-                            MapView().tag(2)
-                        })
+        ZStack(alignment: .bottom) {
+            TabView(selection: $selection) {
+                ForEach(items, id: \.title) { item in
+                    TabContent(height: $tbHeight) {
+                        item.items
+                    }.tabItem {
+                        if selection != item.title {
+                            Image(systemName: item.icon)
+                            Text(item.title)
+                            
+                        }
                     }
                 }
             }
+            
+            .onChange(of: selection) { title in
+                let target = 1
+                if var i = items.firstIndex(where: { $0.title == title }) {
+                    if i > target {
+                        i += 1
+                    }
+                    items.move(fromOffsets: IndexSet(integer: target), toOffset: i)
+                }
+            }
+            
+            SOSTab(height: tbHeight)
         }
+    }
+    
+    struct SOSTab: View {
+        let height: CGFloat
         
-    }
-}
-
-struct MapView : View{
-    var body: some View{
-        VStack {
-            Image(systemName: "map")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("This is map page")
+        var body: some View {
+            VStack {
+            }
+            .ignoresSafeArea()
+            .overlay(
+                Rectangle().foregroundColor(Color(0xff6567))
+                    .frame(width: 150,height: height)
+                    .shadow(radius: 4)
+                    .overlay(){
+                        ZStack {
+                            VStack{
+                                Text("S.O.S").foregroundColor(.white).font(.system(size: 25))
+                                Text("Click more \nthan 3 sec").foregroundColor(.white).font(.system(size: 15))
+                            }
+                        }
+                    }
+                    .cornerRadius(25)
+                , alignment: .bottom)
         }
-        .padding()
     }
-}
+    
+    struct TabContent<V: View>: View {
+        @Binding var height: CGFloat
+        @ViewBuilder var content: () -> V
+        var body: some View {
+            
+            GeometryReader { gp in
+                content()
+                    .onAppear {
+                        height = gp.safeAreaInsets.bottom
+                    }
+            }
+        }
+    }
+    }
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
+    }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

@@ -8,13 +8,88 @@
 import SwiftUI
 
 struct ChatRow: View {
+    var name:String
+    var details:String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .leading){
+            VStack{
+                Spacer().frame(height: 10)
+                HStack {
+                    Spacer().frame(width: 10)
+                    Text(name + " said")
+                        .font(.system(size: 12,weight: .regular))
+                        .lineLimit(2)
+                        .foregroundColor(Color(.white))
+                        .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+                        .background(Color(0x5bd4a4))
+                    .cornerRadius(15)
+                    Spacer(minLength: 0)
+                    Image(systemName: "clock").resizable().frame(width: 10, height: 10)
+                    Text("7 Minutes ago")
+                        .font(.system(size: 10))
+                        .foregroundColor(.gray)
+                    Spacer().frame(width: 10)
+                }
+                Spacer(minLength: 0)
+                HStack {
+                    Text(details)
+                        .font(.system(size: 12,weight: .regular))
+                        .lineLimit(2)
+                        .foregroundColor(Color(.black))
+                        .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+                    Spacer(minLength: 0)
+                    Image("chat_preview_icon").resizable().frame(width: 40, height: 40)
+                }
+                Spacer(minLength: 0)
+                
+            }
+        }.frame(height: 90)
     }
 }
 
-struct ChatRow_Previews: PreviewProvider {
+struct CompletedChatRow: View {
+    var name:String
+    var details:String
+    var body: some View {
+        ZStack(alignment: .leading){
+            VStack{
+                Spacer().frame(height: 10)
+                HStack {
+                    Spacer().frame(width: 10)
+                    Text(name + " said")
+                        .font(.system(size: 12,weight: .regular))
+                        .lineLimit(2)
+                        .foregroundColor(Color(.white))
+                        .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+                        .background(Color(0x5bd4a4))
+                    .cornerRadius(15)
+                    Spacer(minLength: 0)
+                    Image(systemName: "clock").resizable().frame(width: 10, height: 10)
+                    Text("7 Minutes ago")
+                        .font(.system(size: 10))
+                        .foregroundColor(.gray)
+                    Spacer().frame(width: 10)
+                }
+                Spacer(minLength: 0)
+                HStack {
+                    Text(details)
+                        .font(.system(size: 12,weight: .regular))
+                        .lineLimit(2)
+                        .strikethrough()
+                        .foregroundColor(Color(.black))
+                        .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+                    Spacer(minLength: 0)
+                    Image("chat_preview_icon").resizable().frame(width: 40, height: 40)
+                }
+                Spacer(minLength: 0)
+                
+            }
+        }.frame(height: 90)
+    }
+}
+
+struct CompletedChatRow_Previews: PreviewProvider {
     static var previews: some View {
-        ChatRow()
+        CompletedChatRow(name: "Ahmad Albab", details: "afasdsdasfashassrasdsdaaga")
     }
 }
