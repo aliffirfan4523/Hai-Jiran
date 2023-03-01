@@ -32,13 +32,14 @@ struct ContentView: View {
                         item.items
                     }.tabItem {
                         if selection != item.title {
-                                Image(systemName: item.icon)
+                            Image(systemName: item.icon)
                                 Text(item.title)
                         }
-                    }.toolbarBackground(Color.blue, for: .bottomBar)
+                    }
+                    .toolbarColorScheme(.light, for: .tabBar)
+                    
                 }
             }
-            
             .onChange(of: selection) { title in
                 let target = 1
                 if var i = items.firstIndex(where: { $0.title == title }) {
@@ -48,6 +49,7 @@ struct ContentView: View {
                     items.move(fromOffsets: IndexSet(integer: target), toOffset: i)
                 }
             }
+            
             
             SOSTab(height: tbHeight)
         }

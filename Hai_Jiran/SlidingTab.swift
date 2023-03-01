@@ -42,7 +42,7 @@ struct SlidingTabs: View {
                                     }
                                     .frame(width: fixed ? (geoWidth / CGFloat(tabs.count)) : .none, height: 42)
                                     // Bar Indicator
-                                    Rectangle().fill(selectedTab == row ? Color(0x5bd4a4) : Color.clear)
+                                    Rectangle().fill(selectedTab == row ? Color(0x5bd4a4) : Color.gray.opacity(0.3))
                                         .frame(height: 3)
                                 }.fixedSize()
                             })

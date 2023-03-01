@@ -18,7 +18,7 @@
 		91679B4D29AE3A8700AAF8CB /* SelectionPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91679B4C29AE3A8700AAF8CB /* SelectionPageController.swift */; };
 		917CC7F629AF012B005A151C /* SlidingTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CC7F529AF012B005A151C /* SlidingTab.swift */; };
 		917CC7F829AF01E6005A151C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CC7F729AF01E6005A151C /* HomeView.swift */; };
-		91BD36CB29AF143000266F13 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36CA29AF143000266F13 /* SwiftUIView.swift */; };
+		91BD36CD29AF2AE000266F13 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36CC29AF2AE000266F13 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +34,7 @@
 		91679B4C29AE3A8700AAF8CB /* SelectionPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionPageController.swift; sourceTree = "<group>"; };
 		917CC7F529AF012B005A151C /* SlidingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTab.swift; sourceTree = "<group>"; };
 		917CC7F729AF01E6005A151C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		91BD36CA29AF143000266F13 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		91BD36CC29AF2AE000266F13 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,6 @@
 		912121E629AC686E00F842BD = {
 			isa = PBXGroup;
 			children = (
-				91BD36CA29AF143000266F13 /* SwiftUIView.swift */,
 				912121F129AC686E00F842BD /* Hai_Jiran */,
 				912121F029AC686E00F842BD /* Products */,
 			);
@@ -79,6 +78,7 @@
 				91679B4A29AE1F8100AAF8CB /* InfoListView.swift */,
 				91679B4C29AE3A8700AAF8CB /* SelectionPageController.swift */,
 				917CC7F729AF01E6005A151C /* HomeView.swift */,
+				91BD36CC29AF2AE000266F13 /* MapView.swift */,
 			);
 			path = Hai_Jiran;
 			sourceTree = "<group>";
@@ -165,10 +165,10 @@
 				912121F529AC686E00F842BD /* ContentView.swift in Sources */,
 				917CC7F629AF012B005A151C /* SlidingTab.swift in Sources */,
 				9121220329AC936000F842BD /* CircleImage.swift in Sources */,
-				91BD36CB29AF143000266F13 /* SwiftUIView.swift in Sources */,
 				91679B4D29AE3A8700AAF8CB /* SelectionPageController.swift in Sources */,
 				91679B4B29AE1F8100AAF8CB /* InfoListView.swift in Sources */,
 				912121F329AC686E00F842BD /* Hai_JiranApp.swift in Sources */,
+				91BD36CD29AF2AE000266F13 /* MapView.swift in Sources */,
 				91679B4929AE184800AAF8CB /* ChatRow.swift in Sources */,
 				9121220129AC915400F842BD /* Hex_Color.swift in Sources */,
 			);
