@@ -13,7 +13,7 @@ struct ContentView: View {
 
     @State private var selection: String = "house"
     @State private var tbHeight = CGFloat.zero
-    
+
     @State var items = [
         Item(title: "Map", color: .red, icon: "map.circle", items: SelectionPage(selectedPage: 2)),
         Item(title: "house", color: .white, icon: "house", items: SelectionPage(selectedPage: 1)),
@@ -32,11 +32,10 @@ struct ContentView: View {
                         item.items
                     }.tabItem {
                         if selection != item.title {
-                            Image(systemName: item.icon)
-                            Text(item.title)
-                            
+                                Image(systemName: item.icon)
+                                Text(item.title)
                         }
-                    }
+                    }.toolbarBackground(Color.blue, for: .bottomBar)
                 }
             }
             

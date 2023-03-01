@@ -11,7 +11,8 @@ struct Tab {
     var icon: Image?
     var title: String
 }
-struct Tabs: View {
+
+struct SlidingTabs: View {
     var fixed = true
     var tabs: [Tab]
     var geoWidth: CGFloat
