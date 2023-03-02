@@ -20,7 +20,6 @@
 		917CC7F829AF01E6005A151C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CC7F729AF01E6005A151C /* HomeView.swift */; };
 		91BD36CD29AF2AE000266F13 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36CC29AF2AE000266F13 /* MapView.swift */; };
 		91BD36D529AF86EB00266F13 /* AddInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36D429AF86EB00266F13 /* AddInfoButton.swift */; };
-		91BD36D829AF8C7500266F13 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91BD36D729AF8C7500266F13 /* info.plist */; };
 		91BD36DA29AF914F00266F13 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36D929AF914F00266F13 /* location.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +38,6 @@
 		917CC7F729AF01E6005A151C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		91BD36CC29AF2AE000266F13 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		91BD36D429AF86EB00266F13 /* AddInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoButton.swift; sourceTree = "<group>"; };
-		91BD36D729AF8C7500266F13 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		91BD36D929AF914F00266F13 /* location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +77,6 @@
 				91BD36D129AF828200266F13 /* View */,
 				912121F629AC686E00F842BD /* Assets.xcassets */,
 				912121F829AC686E00F842BD /* Preview Content */,
-				91BD36D729AF8C7500266F13 /* info.plist */,
 				91BD36D929AF914F00266F13 /* location.swift */,
 			);
 			path = Hai_Jiran;
@@ -200,7 +197,6 @@
 			files = (
 				912121FA29AC686E00F842BD /* Preview Assets.xcassets in Resources */,
 				912121F729AC686E00F842BD /* Assets.xcassets in Resources */,
-				91BD36D829AF8C7500266F13 /* info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
