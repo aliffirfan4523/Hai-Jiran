@@ -20,7 +20,6 @@
 		917CC7F829AF01E6005A151C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CC7F729AF01E6005A151C /* HomeView.swift */; };
 		91BD36CD29AF2AE000266F13 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36CC29AF2AE000266F13 /* MapView.swift */; };
 		91BD36D529AF86EB00266F13 /* AddInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36D429AF86EB00266F13 /* AddInfoButton.swift */; };
-		91BD36DA29AF914F00266F13 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36D929AF914F00266F13 /* location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +37,6 @@
 		917CC7F729AF01E6005A151C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		91BD36CC29AF2AE000266F13 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		91BD36D429AF86EB00266F13 /* AddInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoButton.swift; sourceTree = "<group>"; };
-		91BD36D929AF914F00266F13 /* location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +75,6 @@
 				91BD36D129AF828200266F13 /* View */,
 				912121F629AC686E00F842BD /* Assets.xcassets */,
 				912121F829AC686E00F842BD /* Preview Content */,
-				91BD36D929AF914F00266F13 /* location.swift */,
 			);
 			path = Hai_Jiran;
 			sourceTree = "<group>";
@@ -213,7 +210,6 @@
 				9121220329AC936000F842BD /* CircleImageView.swift in Sources */,
 				91679B4D29AE3A8700AAF8CB /* SelectionPageController.swift in Sources */,
 				91BD36D529AF86EB00266F13 /* AddInfoButton.swift in Sources */,
-				91BD36DA29AF914F00266F13 /* location.swift in Sources */,
 				91679B4B29AE1F8100AAF8CB /* InfoListView.swift in Sources */,
 				912121F329AC686E00F842BD /* Hai_JiranApp.swift in Sources */,
 				91BD36CD29AF2AE000266F13 /* MapView.swift in Sources */,
