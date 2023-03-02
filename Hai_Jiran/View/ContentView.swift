@@ -15,13 +15,19 @@ struct ContentView: View {
     @State private var tbHeight = CGFloat.zero
 
     @State var items = [
-        Item(title: "Map", color: .red, icon: "map.circle", items: SelectionPage(selectedPage: 2)),
+        Item(title: "Map", color: .red, icon: "map", items: SelectionPage(selectedPage: 2)),
         Item(title: "house", color: .white, icon: "house", items: SelectionPage(selectedPage: 1)),
         Item(title: "Service", color: .green, icon: "gearshape.2", items: SelectionPage(selectedPage: 0)),
     ]
     
     var selected: Item {
         items.first { $0.title == selection } ?? items[0]
+    }
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color.gray.opacity(0.2))
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Color(0x5bd4a4))
+
     }
     
     var body: some View {
@@ -31,12 +37,9 @@ struct ContentView: View {
                     TabContent(height: $tbHeight) {
                         item.items
                     }.tabItem {
-                        if selection != item.title {
-                            Image(systemName: item.icon)
-                                Text(item.title)
-                        }
-                    }
-                    .toolbarColorScheme(.light, for: .tabBar)
+                        Image(systemName: item.icon)
+                        Text(item.title)
+                    }.foregroundColor(.white)
                     
                 }
             }
@@ -64,13 +67,13 @@ struct ContentView: View {
             .ignoresSafeArea()
             .overlay(
                 Rectangle().foregroundColor(Color(0xff6567))
-                    .frame(width: 150,height: height)
+                    .frame(width: 160,height: 70)
                     .shadow(radius: 4)
                     .overlay(){
                         ZStack {
                             VStack{
-                                Text("S.O.S").foregroundColor(.white).font(.system(size: 25))
-                                Text("Click more \nthan 3 sec").foregroundColor(.white).font(.system(size: 15))
+                                Text("S.O.S").foregroundColor(.white).font(.system(size: 23))
+                                Text("Click more than 3 sec").foregroundColor(.white).font(.system(size: 13))
                             }
                         }
                     }

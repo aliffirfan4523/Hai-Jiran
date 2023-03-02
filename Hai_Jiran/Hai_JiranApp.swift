@@ -11,7 +11,7 @@ import SwiftUI
 struct Hai_JiranApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoontentView()
         }
     }
 }

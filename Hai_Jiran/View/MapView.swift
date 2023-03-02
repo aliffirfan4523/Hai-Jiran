@@ -10,6 +10,7 @@ import MapKit
 
 struct MapView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    
     var body: some View {
         VStack {
             ZStack{
@@ -27,8 +28,8 @@ struct MapView: View {
                 }
                 VStack{
                     
-                    Spacer().frame(height: 10)
-                    Text("Maps of community").foregroundColor(.white).font(.custom("Avenier", size: 30))
+                    Spacer().frame(height: 60)
+                    Text("Maps of community").foregroundColor(.white).font(.custom("Avenier", size: 30)).frame(maxWidth: .infinity)
                 }
             }.ignoresSafeArea()
                 .frame(height: 100)

@@ -69,22 +69,9 @@ struct HomeView : View{
                         }
                     }
                 }
-                HStack {
-                    Spacer()
-                    VStack {
-                        Spacer()
-                        Circle().foregroundColor(Color(0x5bd4a4)).overlay(
-                            Text("+")
-                                .font(.system(.largeTitle))
-                                .frame(width: 45, height: 40)
-                                .foregroundColor(Color.white)
-                                .padding(.bottom, 4)
-                        ).frame(height: 50)
-                        
-                    }
-                }.padding(30)
+                AddInfoButton()
             }
-        }
+        }.accentColor(.white)
         
     }
 }
@@ -95,3 +82,4 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+

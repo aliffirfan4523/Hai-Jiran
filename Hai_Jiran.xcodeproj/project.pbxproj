@@ -11,14 +11,17 @@
 		912121F529AC686E00F842BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912121F429AC686E00F842BD /* ContentView.swift */; };
 		912121F729AC686E00F842BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912121F629AC686E00F842BD /* Assets.xcassets */; };
 		912121FA29AC686E00F842BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912121F929AC686E00F842BD /* Preview Assets.xcassets */; };
-		9121220129AC915400F842BD /* Hex_Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9121220029AC915400F842BD /* Hex_Color.swift */; };
-		9121220329AC936000F842BD /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9121220229AC936000F842BD /* CircleImage.swift */; };
+		9121220129AC915400F842BD /* HexColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9121220029AC915400F842BD /* HexColorView.swift */; };
+		9121220329AC936000F842BD /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9121220229AC936000F842BD /* CircleImageView.swift */; };
 		91679B4929AE184800AAF8CB /* ChatRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91679B4829AE184800AAF8CB /* ChatRow.swift */; };
 		91679B4B29AE1F8100AAF8CB /* InfoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91679B4A29AE1F8100AAF8CB /* InfoListView.swift */; };
 		91679B4D29AE3A8700AAF8CB /* SelectionPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91679B4C29AE3A8700AAF8CB /* SelectionPageController.swift */; };
-		917CC7F629AF012B005A151C /* SlidingTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CC7F529AF012B005A151C /* SlidingTab.swift */; };
+		917CC7F629AF012B005A151C /* SlidingTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CC7F529AF012B005A151C /* SlidingTabController.swift */; };
 		917CC7F829AF01E6005A151C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CC7F729AF01E6005A151C /* HomeView.swift */; };
 		91BD36CD29AF2AE000266F13 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36CC29AF2AE000266F13 /* MapView.swift */; };
+		91BD36D529AF86EB00266F13 /* AddInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36D429AF86EB00266F13 /* AddInfoButton.swift */; };
+		91BD36D829AF8C7500266F13 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91BD36D729AF8C7500266F13 /* info.plist */; };
+		91BD36DA29AF914F00266F13 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36D929AF914F00266F13 /* location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,14 +30,17 @@
 		912121F429AC686E00F842BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		912121F629AC686E00F842BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		912121F929AC686E00F842BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9121220029AC915400F842BD /* Hex_Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hex_Color.swift; sourceTree = "<group>"; };
-		9121220229AC936000F842BD /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		9121220029AC915400F842BD /* HexColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColorView.swift; sourceTree = "<group>"; };
+		9121220229AC936000F842BD /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		91679B4829AE184800AAF8CB /* ChatRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRow.swift; sourceTree = "<group>"; };
 		91679B4A29AE1F8100AAF8CB /* InfoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoListView.swift; sourceTree = "<group>"; };
 		91679B4C29AE3A8700AAF8CB /* SelectionPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionPageController.swift; sourceTree = "<group>"; };
-		917CC7F529AF012B005A151C /* SlidingTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTab.swift; sourceTree = "<group>"; };
+		917CC7F529AF012B005A151C /* SlidingTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTabController.swift; sourceTree = "<group>"; };
 		917CC7F729AF01E6005A151C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		91BD36CC29AF2AE000266F13 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		91BD36D429AF86EB00266F13 /* AddInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoButton.swift; sourceTree = "<group>"; };
+		91BD36D729AF8C7500266F13 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		91BD36D929AF914F00266F13 /* location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,17 +74,13 @@
 			isa = PBXGroup;
 			children = (
 				912121F229AC686E00F842BD /* Hai_JiranApp.swift */,
-				917CC7F529AF012B005A151C /* SlidingTab.swift */,
-				912121F429AC686E00F842BD /* ContentView.swift */,
+				91BD36D229AF82C000266F13 /* Controller */,
+				91BD36D029AF827900266F13 /* Model */,
+				91BD36D129AF828200266F13 /* View */,
 				912121F629AC686E00F842BD /* Assets.xcassets */,
 				912121F829AC686E00F842BD /* Preview Content */,
-				9121220029AC915400F842BD /* Hex_Color.swift */,
-				9121220229AC936000F842BD /* CircleImage.swift */,
-				91679B4829AE184800AAF8CB /* ChatRow.swift */,
-				91679B4A29AE1F8100AAF8CB /* InfoListView.swift */,
-				91679B4C29AE3A8700AAF8CB /* SelectionPageController.swift */,
-				917CC7F729AF01E6005A151C /* HomeView.swift */,
-				91BD36CC29AF2AE000266F13 /* MapView.swift */,
+				91BD36D729AF8C7500266F13 /* info.plist */,
+				91BD36D929AF914F00266F13 /* location.swift */,
 			);
 			path = Hai_Jiran;
 			sourceTree = "<group>";
@@ -89,6 +91,53 @@
 				912121F929AC686E00F842BD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		91BD36D029AF827900266F13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		91BD36D129AF828200266F13 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91BD36D329AF86BE00266F13 /* Home */,
+				9121220229AC936000F842BD /* CircleImageView.swift */,
+				91679B4A29AE1F8100AAF8CB /* InfoListView.swift */,
+				91BD36CC29AF2AE000266F13 /* MapView.swift */,
+				912121F429AC686E00F842BD /* ContentView.swift */,
+				91679B4829AE184800AAF8CB /* ChatRow.swift */,
+				9121220029AC915400F842BD /* HexColorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91BD36D229AF82C000266F13 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				91679B4C29AE3A8700AAF8CB /* SelectionPageController.swift */,
+				917CC7F529AF012B005A151C /* SlidingTabController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		91BD36D329AF86BE00266F13 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				91BD36D629AF872100266F13 /* Info */,
+				917CC7F729AF01E6005A151C /* HomeView.swift */,
+				91BD36D429AF86EB00266F13 /* AddInfoButton.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		91BD36D629AF872100266F13 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +200,7 @@
 			files = (
 				912121FA29AC686E00F842BD /* Preview Assets.xcassets in Resources */,
 				912121F729AC686E00F842BD /* Assets.xcassets in Resources */,
+				91BD36D829AF8C7500266F13 /* info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,14 +213,16 @@
 			files = (
 				917CC7F829AF01E6005A151C /* HomeView.swift in Sources */,
 				912121F529AC686E00F842BD /* ContentView.swift in Sources */,
-				917CC7F629AF012B005A151C /* SlidingTab.swift in Sources */,
-				9121220329AC936000F842BD /* CircleImage.swift in Sources */,
+				917CC7F629AF012B005A151C /* SlidingTabController.swift in Sources */,
+				9121220329AC936000F842BD /* CircleImageView.swift in Sources */,
 				91679B4D29AE3A8700AAF8CB /* SelectionPageController.swift in Sources */,
+				91BD36D529AF86EB00266F13 /* AddInfoButton.swift in Sources */,
+				91BD36DA29AF914F00266F13 /* location.swift in Sources */,
 				91679B4B29AE1F8100AAF8CB /* InfoListView.swift in Sources */,
 				912121F329AC686E00F842BD /* Hai_JiranApp.swift in Sources */,
 				91BD36CD29AF2AE000266F13 /* MapView.swift in Sources */,
 				91679B4929AE184800AAF8CB /* ChatRow.swift in Sources */,
-				9121220129AC915400F842BD /* Hex_Color.swift in Sources */,
+				9121220129AC915400F842BD /* HexColorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +349,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2.2;
 				DEVELOPMENT_ASSET_PATHS = "\"Hai_Jiran/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -310,7 +362,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Hi5.Hai-Jiran";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -325,7 +377,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2.2;
 				DEVELOPMENT_ASSET_PATHS = "\"Hai_Jiran/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -338,7 +390,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Hi5.Hai-Jiran";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
