@@ -15,7 +15,7 @@ struct MapView: View {
     var body: some View {
         VStack {
             ZStack{
-                Color(0x5bd4a4)
+               Color(0x5bd4a4)
                 HStack(spacing:15){
                     Spacer(minLength: 0)
                     VStack {
@@ -54,7 +54,13 @@ struct MapView: View {
                 MapProfileRow(name: "Alif Berating", details: "")
                 MapProfileRow(name: "Salim Gorgon", details: "")
                 MapProfileRow(name: "Nazim Ilyas", details: "")
-                MapProfileRow(name: "Aminah munir", details: "")
+                MapProfileRow(name: "Ahmad Zubair", details: "")
+                MapProfileRow(name: "Lim Kok Wing", details: "")
+                MapProfileRow(name: "Michelle Munira", details: "")
+                MapProfileRow(name: "Subramaniam ", details: "")
+                MapProfileRow(name: "Raju Rastogi", details: "")
+                
+               
             }.listStyle(PlainListStyle())
             
             

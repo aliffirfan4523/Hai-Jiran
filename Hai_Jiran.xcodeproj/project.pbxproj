@@ -124,9 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				91BD36D329AF86BE00266F13 /* Home */,
-				9121220229AC936000F842BD /* CircleImageView.swift */,
 				91BD36CC29AF2AE000266F13 /* MapView.swift */,
 				91D4B8D829B18E14008BA8AB /* SOS_Button.swift */,
+				9121220229AC936000F842BD /* CircleImageView.swift */,
 				91D4B8DC29B1A4EA008BA8AB /* listOptionMyInfo.swift */,
 				91D4B8DD29B1A4EA008BA8AB /* listOptionWhatsNew.swift */,
 				91D4B8D929B18E14008BA8AB /* SOS_CallAll.swift */,
