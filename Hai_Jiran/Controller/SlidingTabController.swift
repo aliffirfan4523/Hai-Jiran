@@ -18,54 +18,52 @@ struct SlidingTabs: View {
     var geoWidth: CGFloat
     @Binding var selectedTab: Int
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            ScrollViewReader { proxy in
-                VStack() {
-                    HStack(spacing: 0) {
-                        ForEach(0 ..< tabs.count, id: \.self) { row in
-                            Button(action: {
-                                withAnimation {
-                                    selectedTab = row
-                                }
-                            }, label: {
-                                VStack(spacing: 0) {
-                                    HStack {
-                                        // Image
-                                        AnyView(tabs[row].icon)
-                                            .foregroundColor(Color(0x5bd4a4))
-                                            .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0))
-                                        // Text
-                                        Text(tabs[row].title)
-                                            .font(Font.system(size: 15, weight: .semibold))
-                                            .foregroundColor(Color(0x5bd4a4))
-                                            .padding(EdgeInsets(top: 10, leading: 3, bottom: 10, trailing: 15))
-                                    }
-                                    .frame(width: fixed ? (geoWidth / CGFloat(tabs.count)) : .none, height: 42)
-                                    // Bar Indicator
-                                    Rectangle().fill(selectedTab == row ? Color(0x5bd4a4) : Color.gray.opacity(0.3))
-                                        .frame(height: 3)
-                                }.fixedSize()
-                            })
-                                .accentColor(Color(0x5bd4a4))
-                                .buttonStyle(PlainButtonStyle())
-                        }
-                    }
-                    .onChange(of: selectedTab) { target in
+        VStack() {
+            HStack(spacing: 0) {
+                ForEach(0 ..< tabs.count, id: \.self) { row in
+                    Button(action: {
                         withAnimation {
-                            proxy.scrollTo(target)
+                            selectedTab = row
                         }
-                    }
+                    }, label: {
+                        VStack(spacing: 0) {
+                            HStack {
+                                
+                                // Text
+                                Text(tabs[row].title)
+                                    .font(Font.system(size: 12, weight: .semibold))
+                                    .foregroundColor(Color(0x5bd4a4))
+                                    .padding(EdgeInsets(top: 10, leading: 3, bottom: 10, trailing: 0))
+                                // Image
+                                AnyView(tabs[row].icon)
+                                    .foregroundColor(Color(0x5bd4a4))
+                                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))
+                            }
+                            .frame(width: fixed ? (geoWidth / CGFloat(tabs.count)) : .none, height: 42)
+                            // Bar Indicator
+                            Rectangle().fill(selectedTab == row ? Color(0x5bd4a4) : Color.gray.opacity(0.3))
+                                .frame(height: 3)
+                        }.fixedSize()
+                    })
+                        .accentColor(Color(0x5bd4a4))
+                        .buttonStyle(PlainButtonStyle())
                 }
             }
         }
         .frame(height: 45)
         .onAppear(perform: {
             UIScrollView.appearance().backgroundColor = UIColor(Color.white)
-            UIScrollView.appearance().bounces = fixed ? false : true
+            UIScrollView.appearance().bounces = false
         })
         .onDisappear(perform: {
             UIScrollView.appearance().bounces = true
         })
 
+    }
+}
+
+struct SlidigTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
     }
 }

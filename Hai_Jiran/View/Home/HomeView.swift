@@ -9,10 +9,11 @@ import SwiftUI
 
 struct HomeView : View{
     @State private var selectedTab: Int = 0
+    @State var changeTab = true
     let tabs : [Tab] = [
-        .init(title: "Whats New?"),
-        .init(title: "My Info"),
-        .init(title: "Completed")
+        .init(icon: Image(systemName: "globe"), title: "Whats New?"),
+        .init(icon: Image(systemName: "globe"),title: "My Info"),
+        .init(icon: Image(systemName: "globe"),title: "Completed")
     ]
     
     var body: some View{
@@ -30,17 +31,25 @@ struct HomeView : View{
                                         .foregroundColor(.white)
                                 }.padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 30))
                                 Spacer()
-                                ZStack {
-                                    Rectangle()
-                                        .frame(width:30, height: 30)
-                                        .cornerRadius(4)
-                                        .foregroundColor(Color(0x37a26d))
-                                    Button(action: {}){
+                                NavigationLink(
+                                    destination: UpdateProfileView(
+                                    fullname: "",
+                                    profileName: "",
+                                    Age: "2",
+                                    mobileNumber: "",
+                                    currentJob: "",
+                                    Address: ""
+                                )) {
+                                    ZStack {
+                                        Rectangle()
+                                            .frame(width:30, height: 30)
+                                            .cornerRadius(4)
+                                            .foregroundColor(Color(0x37a26d))
                                         Image(systemName: "rectangle.and.pencil.and.ellipsis")
                                             .font(.system(size: 15))
                                             .foregroundColor(.white)
-                                    }
-                                }.padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 15))
+                                    }.padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 15))
+                                }
                             }
                         }
                         VStack{
@@ -59,19 +68,31 @@ struct HomeView : View{
                                 //tabs
                                 SlidingTabs(tabs: tabs, geoWidth: geo.size.width, selectedTab: $selectedTab)
                                 //Views
-                                TabView(selection: $selectedTab,
-                                        content: {
-                                    NewInfoListView().tag(0)
-                                    MyInfoListView().tag(1)
-                                    CompletedInfoListView().tag(2)
-                                }).tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                            }
+                                switch selectedTab {
+                                case 0:
+                                    AnyView(NewInfoListView())
+                                case 1:
+                                    AnyView(MyInfoListView())
+                                case 2:
+                                    AnyView(CompletedInfoListView())
+                                default:
+                                    AnyView(Text("s"))
+                                }
+                                
+                                /*TabView(selection: $selectedTab,
+                                 content: {
+                                 NewInfoListView().tag(0)
+                                 MyInfoListView().tag(1)
+                                 CompletedInfoListView().tag(2)
+                                 }).tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                                 .disabled(true)*/
+                            }.animation(.linear, value: changeTab)
                         }
                     }
                 }
                 AddInfoButton()
             }
-        }.accentColor(.white)
+        }.accentColor(.black)
         
     }
 }

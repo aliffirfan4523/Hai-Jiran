@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct CircleImage: View {
+    var width:CGFloat = 160
+    var height:CGFloat = 110
+    
     var body: some View {
           Image("ahmadalbab")
             .resizable()
-            .frame(width: 160, height: 110)
+            .frame(width: width, height: height)
                 .aspectRatio(contentMode: .fill)
                      .clipShape(Circle())
                      .overlay(Circle().stroke(Color.white, lineWidth: 2))

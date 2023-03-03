@@ -38,7 +38,7 @@ struct ChatRow: View {
                         .foregroundColor(Color(.black))
                         .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                     Spacer(minLength: 0)
-                    Image("chat_preview_icon").resizable().frame(width: 40, height: 40)
+                    Image(systemName: "button.programmable").resizable().frame(width: 25, height: 25).padding()
                 }
                 Spacer(minLength: 0)
                 
@@ -79,7 +79,7 @@ struct CompletedChatRow: View {
                         .foregroundColor(Color(.black))
                         .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                     Spacer(minLength: 0)
-                    Image("chat_preview_icon").resizable().frame(width: 40, height: 40)
+                    Image(systemName: "arrow.backward").resizable().frame(width: 25, height: 25).padding()
                 }
                 Spacer(minLength: 0)
                 
@@ -90,6 +90,6 @@ struct CompletedChatRow: View {
 
 struct CompletedChatRow_Previews: PreviewProvider {
     static var previews: some View {
-        CompletedChatRow(name: "Ahmad Albab", details: "afasdsdasfashassrasdsdaaga")
+        ChatRow(name: "Ahmad Albab", details: "afasdsdasfashassrasdsdaaga")
     }
 }

@@ -7,22 +7,45 @@
 
 import SwiftUI
 
+
+
 struct NewInfoListView: View {
+    @State private var isSwiped = false
+
+    
     var body: some View {
-        List{
-            ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-        }.listStyle(PlainListStyle())
+        NavigationStack {
+            List {
+                ForEach(infos) { info in
+                    Button(action: {
+                                withAnimation {
+                                }
+                            }) {
+                                ChatRow(name: info.name, details: info.details)
+                            }
+                        
+                        .swipeActions(edge: .trailing,allowsFullSwipe: true, content: {
+                            Button(role: .destructive, action: {
+                                
+                            }, label: {
+                                Label("Delete", systemImage: "trash")
+                            })
+                            Button(role: .none, action: {
+                                
+                            }, label: {
+                                Label("Delete", systemImage: "trash")
+                            })
+                        })
+                }
+            }
+            .listStyle(PlainListStyle())
+        }
+            
         
     }
+    func delete(at offsets: IndexSet) {
+        infos.remove(atOffsets: offsets)
+        }
 }
 
 struct MyInfoListView_Previews: PreviewProvider {

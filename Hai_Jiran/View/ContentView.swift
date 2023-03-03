@@ -17,7 +17,7 @@ struct ContentView: View {
     @State var items = [
         Item(title: "Map", color: .red, icon: "map", items: SelectionPage(selectedPage: 2)),
         Item(title: "house", color: .white, icon: "house", items: SelectionPage(selectedPage: 1)),
-        Item(title: "Service", color: .green, icon: "gearshape.2", items: SelectionPage(selectedPage: 0)),
+        Item(title: "Service", color: .green, icon: "gearshape.2", items: SelectionPage(selectedPage: 3)),
     ]
     
     var selected: Item {
@@ -39,7 +39,7 @@ struct ContentView: View {
                     }.tabItem {
                         Image(systemName: item.icon)
                         Text(item.title)
-                    }.foregroundColor(.white)
+                    }
                     
                 }
             }
@@ -54,7 +54,7 @@ struct ContentView: View {
             }
             
             
-            SOSTab(height: tbHeight)
+            SOS_Button()
         }
     }
     
