@@ -18,7 +18,7 @@ struct SelectionPage:View {
     var body: some View{
         switch selectedPage {
             case 1 : HomeView()
-            case 2 : MapComView()
+            case 2 : MapView()
         case 3 : ServicesView()
         default : Text("Under Construction🥲").frame(maxWidth: .infinity, maxHeight: .infinity)
         }
