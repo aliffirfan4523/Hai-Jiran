@@ -54,7 +54,7 @@ struct cameraApp: View {
             
         }
         .frame(width: .infinity, height: 150)
-        .overlay(RoundedRectangle(cornerRadius: 8).stroke(maincolor, lineWidth: 2))    }
+        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color("mainColorTheme"), lineWidth: 2))    }
 }
 
 struct cameraApp_Previews: PreviewProvider {

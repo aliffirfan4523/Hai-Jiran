@@ -41,7 +41,7 @@ struct ConteentView: View {
             TextField("Details", text: $details)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Button("Add") {
-               //$infos.append(Info(name: name, details: details))
+
                 name = ""
                 details = ""
                 infos.save()
@@ -59,5 +59,11 @@ struct ConteentView: View {
         .onAppear {
             infos.load()
         }
+    }
+}
+
+struct ConteentView_Preview : PreviewProvider{
+    static var previews: some View {
+        ConteentView()
     }
 }

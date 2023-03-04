@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-var currentUser = UserList[0]
 
 struct UpdateProfileView: View {
     
@@ -29,7 +28,7 @@ struct UpdateProfileView: View {
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(maincolor, lineWidth: 2)
+                                .stroke(Color("mainColorTheme"), lineWidth: 2)
                         )
             }
             HStack{
@@ -39,7 +38,7 @@ struct UpdateProfileView: View {
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(maincolor, lineWidth: 2)
+                                .stroke(Color("mainColorTheme"), lineWidth: 2)
                         )
             }
             HStack{
@@ -49,7 +48,7 @@ struct UpdateProfileView: View {
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(maincolor, lineWidth: 2)
+                                .stroke(Color("mainColorTheme"), lineWidth: 2)
                         )
             }
             HStack{
@@ -59,7 +58,7 @@ struct UpdateProfileView: View {
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(maincolor, lineWidth: 2)
+                                .stroke(Color("mainColorTheme"), lineWidth: 2)
                         )
             }
             HStack{
@@ -69,7 +68,7 @@ struct UpdateProfileView: View {
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(maincolor, lineWidth: 2)
+                                .stroke(Color("mainColorTheme"), lineWidth: 2)
                         )
             }
             HStack{
@@ -80,7 +79,7 @@ struct UpdateProfileView: View {
                     .padding(.horizontal)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(maincolor, lineWidth: 2)
+                            .stroke(Color("mainColorTheme"), lineWidth: 2)
                     )
                     .frame(height: 80)
             }
@@ -90,7 +89,7 @@ struct UpdateProfileView: View {
                 }
                     .frame(width: 50)
                     .padding(8)
-                    .background(maincolor)
+                    .background(Color("mainColorTheme"))
                     .cornerRadius(16)
                 Spacer()
                 Button("Confirm"){
@@ -98,7 +97,7 @@ struct UpdateProfileView: View {
                 }
                     .frame(width: 70)
                     .padding(8)
-                    .background(maincolor)
+                    .background(Color("mainColorTheme"))
                     .cornerRadius(16)
             }.padding()
             

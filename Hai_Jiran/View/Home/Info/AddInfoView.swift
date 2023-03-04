@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddInfoView: View {
+    @Environment(\.presentationMode) var presentationMode
     
     @State private var detailsString = ""
     @State private var titleString = ""
@@ -15,6 +16,7 @@ struct AddInfoView: View {
     @State private var descriptionString = ""
     @State private var contactNumString = ""
     @State private var PersonNameString = ""
+    @State private var showAlert = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -23,7 +25,7 @@ struct AddInfoView: View {
                 .bold()
             TextEditor(text: $detailsString)
                 .overlay(RoundedRectangle(cornerRadius: 8)
-                    .stroke(maincolor, lineWidth: 2))
+                    .stroke(Color("mainColorTheme"), lineWidth: 2))
                 .frame(width: .infinity, height: 70)
             
             //input image
@@ -37,7 +39,7 @@ struct AddInfoView: View {
                 TextField("Title", text: $titleString)
                     .textFieldStyle(.roundedBorder)
                     .overlay(RoundedRectangle(cornerRadius: 8)
-                        .stroke(maincolor, lineWidth: 2))
+                        .stroke(Color("mainColorTheme"), lineWidth: 2))
             }
             
             // date and time picker
@@ -54,7 +56,7 @@ struct AddInfoView: View {
                 .bold()
             TextEditor(text: $descriptionString)
                 .overlay(RoundedRectangle(cornerRadius: 8)
-                    .stroke(maincolor, lineWidth: 2))
+                    .stroke(Color("mainColorTheme"), lineWidth: 2))
                 .frame(width: .infinity, height: 150)
             HStack{
                 Text("Contact \nNumber")
@@ -63,14 +65,14 @@ struct AddInfoView: View {
                 TextField("Number", text: $contactNumString)
                     .textFieldStyle(.roundedBorder)
                     .overlay(RoundedRectangle(cornerRadius: 8)
-                        .stroke(maincolor, lineWidth: 2))
+                        .stroke(Color("mainColorTheme"), lineWidth: 2))
                 Text("Person \nName")
                     .font(.custom("Avenir", size: 15))
                     .bold()
                 TextField("Name", text: $PersonNameString)
                     .textFieldStyle(.roundedBorder)
                     .overlay(RoundedRectangle(cornerRadius: 8)
-                        .stroke(maincolor, lineWidth: 2))
+                        .stroke(Color("mainColorTheme"), lineWidth: 2))
             }
             
             /// button segmen
@@ -82,15 +84,35 @@ struct AddInfoView: View {
                         .frame(width: 100, height: 35)
                     Button("Tell them!", action: {
                         //ContentView()
+                        tellThem()
+                        presentationMode.wrappedValue.dismiss()
                     })
                     .foregroundColor(.white).bold()
                 }
             }
             Spacer()
         }.padding(30)
+            .alert(isPresented: $showAlert) {
+                        Alert(title: Text("Error"), message: Text("Please fill in all required fields."), dismissButton: .default(Text("OK")))
+                    }
     }
     
-    func tellThem(){
+    func tellThem() {
+        // Check if any of the required fields is empty
+        // Check if any of the required fields is empty
+            if detailsString.isEmpty || titleString.isEmpty || descriptionString.isEmpty {
+                // Show an alert to the user
+                showAlert = true
+            }
+            
+        else
+        {
+            // Add the new info to the array
+            infos += [Info(name: currentUser.profileName, details: detailsString, picture: UIImage(), title: titleString, date: date, description: descriptionString, contactNum: contactNumString, personName: PersonNameString)]
+            // Close the page
+            presentationMode.wrappedValue.dismiss()
+        }
+        
         
     }
     

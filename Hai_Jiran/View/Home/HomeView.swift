@@ -21,7 +21,7 @@ struct HomeView : View{
             ZStack {
                 VStack(){
                     ZStack{
-                        Color(0x5bd4a4)
+                        Color("mainColorTheme")
                         HStack(spacing:15){
                             Spacer(minLength: 0)
                             VStack {
@@ -32,21 +32,14 @@ struct HomeView : View{
                                 }.padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 30))
                                 Spacer()
                                 NavigationLink(
-                                    destination: UpdateProfileView(
-                                    fullname: "",
-                                    profileName: "",
-                                    Age: "2",
-                                    mobileNumber: "",
-                                    currentJob: "",
-                                    Address: ""
-                                )) {
+                                    destination: UpdateProfileView()) {
                                     ZStack {
                                         Rectangle()
                                             .frame(width:30, height: 30)
                                             .cornerRadius(4)
-                                            .foregroundColor(Color(0x37a26d))
-                                        Image(systemName: "rectangle.and.pencil.and.ellipsis")
-                                            .font(.system(size: 15))
+                                            .foregroundColor(Color("thirdColorTheme"))
+                                        Image(systemName: "square.and.pencil")
+                                            .font(.system(size: 20))
                                             .foregroundColor(.white)
                                     }.padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 15))
                                 }
@@ -56,7 +49,7 @@ struct HomeView : View{
                             Spacer().frame(height: 30)
                             CircleImage()
                             Spacer().frame(height: 20)
-                            Text("Hi Ahmad Albab").foregroundColor(.white).font(.custom("Avenier", size: 25))
+                            Text("Hi " + currentUser.profileName).foregroundColor(.white).font(.custom("Avenier", size: 25))
                         }
                     }.edgesIgnoringSafeArea(.top)
                         .frame(height: 190)

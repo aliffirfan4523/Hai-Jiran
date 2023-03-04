@@ -11,6 +11,101 @@ import SwiftUI
 
 struct NewInfoListView: View {
     @State private var isSwiped = false
+    @State var newinfo: [Info] = infos
+    
+    var body: some View {
+        NavigationStack {
+            List {
+                ForEach(newinfo) { info in
+                    Button(action: {
+                                withAnimation {
+                                }
+                            }) {
+                                ChatRow(name: info.name, details: info.details)
+                            }
+                        
+                        .swipeActions(edge: .trailing,allowsFullSwipe: true, content: {
+                            Button(role: .destructive, action: {
+                                newinfo = infos
+                            }, label: {
+                                Label("Delete", systemImage: "trash")
+                            })
+                            Button(role: .none, action: {
+                                newinfo = infos
+                            }, label: {
+                                Label("Delete", systemImage: "trash")
+                            })
+                        })
+                }
+            }
+            .listStyle(PlainListStyle())
+            .onAppear {
+                // Get the latest data from the array and update the state variable
+                newinfo = infos
+            }
+        }
+            
+        
+    }
+    func delete(at offsets: IndexSet) {
+        infos.remove(atOffsets: offsets)
+        }
+}
+
+struct MyInfoListView_Previews: PreviewProvider {
+    static var previews: some View {
+        MyInfoListView()
+    }
+}
+
+struct MyInfoListView: View {
+    @State private var isSwiped = false
+
+    
+    var body: some View {
+        NavigationStack {
+            List {
+                ForEach(infos) { info in
+                    Button(action: {
+                        withAnimation {
+                                        self.isSwiped.toggle()
+                                    }
+                            }) {
+                                ChatRow(name: info.name, details: info.details)
+                            }
+                        
+                        .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
+                            Button(role: .none, action: {
+                                
+                            }, label: {
+                                Label("Done", systemImage: "square.and.pencil")
+                            }).tint(.green)
+                            Button(role: .none, action: {
+                                
+                            }, label: {
+                                Label("Edit", systemImage: "square.and.pencil")
+                            }).tint(.gray)
+                            Button(role: .none, action: {
+                                
+                            }, label: {
+                                Label("Share", systemImage: "square.and.arrow.up")
+                            }).tint(.yellow)
+                            
+                        })
+                }
+            }
+            .listStyle(PlainListStyle())
+        }
+            
+        
+    }
+    func delete(at offsets: IndexSet) {
+        infos.remove(atOffsets: offsets)
+        }
+}
+
+struct CompletedInfoListView: View {
+    @State private var isSwiped = false
 
     
     var body: some View {
@@ -21,7 +116,7 @@ struct NewInfoListView: View {
                                 withAnimation {
                                 }
                             }) {
-                                ChatRow(name: info.name, details: info.details)
+                                CompletedChatRow(name: info.name, details: info.details)
                             }
                         
                         .swipeActions(edge: .trailing,allowsFullSwipe: true, content: {
@@ -46,41 +141,4 @@ struct NewInfoListView: View {
     func delete(at offsets: IndexSet) {
         infos.remove(atOffsets: offsets)
         }
-}
-
-struct MyInfoListView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewInfoListView()
-    }
-}
-
-struct MyInfoListView: View {
-    var body: some View{
-        ZStack {
-            List{
-                ChatRow(name: "I", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-                ChatRow(name: "I", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-                ChatRow(name: "I", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-                ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-                ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-                ChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            }.listStyle(PlainListStyle())
-            VStack {
-            Spacer()
-            }
-        }
-    }
-}
-
-struct CompletedInfoListView: View {
-    var body: some View{
-        List{
-            CompletedChatRow(name: "I", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            CompletedChatRow(name: "I", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            CompletedChatRow(name: "I", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            CompletedChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            CompletedChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-            CompletedChatRow(name: "Ahmad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam")
-        }.listStyle(PlainListStyle())
-    }
 }

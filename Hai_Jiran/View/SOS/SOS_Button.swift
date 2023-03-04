@@ -24,7 +24,7 @@ struct SOS_Button: View {
                 .opacity(press ? 1 : 0)
                 .scaleEffect(press ? 1 : 0)
             }
-        .frame(width: 120, height: 80)
+        .frame(width: 140, height: 80)
         .background(
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color(press ? .red : .red), Color(press ? .red : .red)]), startPoint: .topLeading, endPoint: .bottomTrailing)

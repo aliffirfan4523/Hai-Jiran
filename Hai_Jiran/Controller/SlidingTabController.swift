@@ -32,20 +32,20 @@ struct SlidingTabs: View {
                                 // Text
                                 Text(tabs[row].title)
                                     .font(Font.system(size: 12, weight: .semibold))
-                                    .foregroundColor(Color(0x5bd4a4))
+                                    .foregroundColor(Color("mainColorTheme"))
                                     .padding(EdgeInsets(top: 10, leading: 3, bottom: 10, trailing: 0))
                                 // Image
                                 AnyView(tabs[row].icon)
-                                    .foregroundColor(Color(0x5bd4a4))
+                                    .foregroundColor(Color("mainColorTheme"))
                                     .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))
                             }
                             .frame(width: fixed ? (geoWidth / CGFloat(tabs.count)) : .none, height: 42)
                             // Bar Indicator
-                            Rectangle().fill(selectedTab == row ? Color(0x5bd4a4) : Color.gray.opacity(0.3))
+                            Rectangle().fill(selectedTab == row ? Color("mainColorTheme") : Color.gray.opacity(0.3))
                                 .frame(height: 3)
                         }.fixedSize()
                     })
-                        .accentColor(Color(0x5bd4a4))
+                        .accentColor(Color("mainColorTheme"))
                         .buttonStyle(PlainButtonStyle())
                 }
             }

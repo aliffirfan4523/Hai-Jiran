@@ -13,7 +13,7 @@ struct AddInfoButton: View {
             Spacer()
             VStack {
                 Spacer()
-                Circle().foregroundColor(Color(0x5bd4a4)).overlay(
+                Circle().foregroundColor(Color("mainColorTheme")).overlay(
                     NavigationLink(destination: AddInfoView()) {
                         Text("+")
                             .font(.system(.largeTitle))

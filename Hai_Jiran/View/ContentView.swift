@@ -8,17 +8,10 @@
 import SwiftUI
 import UIKit
 
-let maincolor = Color(0x5bd4a4)
 struct ContentView: View {
 
     @State private var selection: String = "house"
     @State private var tbHeight = CGFloat.zero
-
-    @State var items = [
-        Item(title: "Map", color: .red, icon: "map", items: SelectionPage(selectedPage: 2)),
-        Item(title: "house", color: .white, icon: "house", items: SelectionPage(selectedPage: 1)),
-        Item(title: "Service", color: .green, icon: "gearshape.2", items: SelectionPage(selectedPage: 3)),
-    ]
     
     var selected: Item {
         items.first { $0.title == selection } ?? items[0]
@@ -26,8 +19,7 @@ struct ContentView: View {
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color.gray.opacity(0.2))
-        UITabBar.appearance().unselectedItemTintColor = UIColor(Color(0x5bd4a4))
-
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Color("mainColorTheme"))
     }
     
     var body: some View {
@@ -55,30 +47,6 @@ struct ContentView: View {
             
             
             SOS_Button()
-        }
-    }
-    
-    struct SOSTab: View {
-        let height: CGFloat
-        
-        var body: some View {
-            VStack {
-            }
-            .ignoresSafeArea()
-            .overlay(
-                Rectangle().foregroundColor(Color(0xff6567))
-                    .frame(width: 160,height: 70)
-                    .shadow(radius: 4)
-                    .overlay(){
-                        ZStack {
-                            VStack{
-                                Text("S.O.S").foregroundColor(.white).font(.system(size: 23))
-                                Text("Click more than 3 sec").foregroundColor(.white).font(.system(size: 13))
-                            }
-                        }
-                    }
-                    .cornerRadius(25)
-                , alignment: .bottom)
         }
     }
     
