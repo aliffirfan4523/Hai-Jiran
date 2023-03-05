@@ -9,6 +9,7 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
+    @StateObject var userData = UserData()
     
     @State private var selection: String = "house"
     @State private var tbHeight = CGFloat.zero
@@ -51,9 +52,9 @@ struct ContentView: View {
                     barItems.move(fromOffsets: IndexSet(integer: target), toOffset: i)
                 }
             }
-            
             SOS_Button()
         }.ignoresSafeArea(.keyboard, edges: .bottom)
+            .environmentObject(userData)
     }
     
     

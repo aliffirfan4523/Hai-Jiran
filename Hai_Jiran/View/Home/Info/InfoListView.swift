@@ -11,12 +11,12 @@ import SwiftUI
 
 struct NewInfoListView: View {
     @State private var isSwiped = false
-    @State var newinfo: [Info] = newInfos
+    @EnvironmentObject var newInfo: UserData
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(newinfo) { info in
+                ForEach(newInfo.newInfos) { info in
                     Button(action: {
                                 withAnimation {
                                 }
@@ -40,14 +40,14 @@ struct NewInfoListView: View {
             .listStyle(PlainListStyle())
             .onAppear {
                 // Get the latest data from the array and update the state variable
-                newinfo = newInfos
+                newInfo.newInfos = newInfo.newInfos
             }
         }
             
         
     }
     func delete(at offsets: IndexSet) {
-        newInfos.remove(atOffsets: offsets)
+        newInfo.newInfos.remove(atOffsets: offsets)
         }
 }
 
@@ -59,13 +59,13 @@ struct MyInfoListView_Previews: PreviewProvider {
 
 struct MyInfoListView: View {
     @State private var isSwiped = false
-    @State var myInfo: [Info] = myInfos
+    @EnvironmentObject var myInfo: UserData
 
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(myInfo) { info in
+                ForEach(myInfo.myInfos) { info in
                     Button(action: {
                         withAnimation {
                                         self.isSwiped.toggle()
@@ -100,18 +100,18 @@ struct MyInfoListView: View {
         
     }
     func delete(at offsets: IndexSet) {
-        myInfos.remove(atOffsets: offsets)
+        myInfo.myInfos.remove(atOffsets: offsets)
         }
 }
 
 struct CompletedInfoListView: View {
     @State private var isSwiped = false
-    @State var completedInfo: [Info] = completedInfos
+    @EnvironmentObject var completedinfo: UserData
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(completedInfo) { info in
+                ForEach(completedinfo.completedInfos) { info in
                     Button(action: {
                                 withAnimation {
                                 }
@@ -121,9 +121,7 @@ struct CompletedInfoListView: View {
                         
                         .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
                             Button(role: .destructive, action: {
-                                if let index = completedInfo.firstIndex(where: { $0.id == info.id }) {
-                                    completedInfo.remove(at: index)
-                                }
+                                delete(info: info)
                             }, label: {
                                 Label("Delete", systemImage: "trash")
                             })
@@ -135,7 +133,11 @@ struct CompletedInfoListView: View {
             
         
     }
-    func delete(at offsets: IndexSet) {
-        completedInfos.remove(atOffsets: offsets)
+    func delete(info: Info) {
+
+        if let index = completedinfo.completedInfos.firstIndex(where: { $0.id == info.id }) {
+            completedinfo.completedInfos.remove(at: index)
+            
         }
+    }
 }

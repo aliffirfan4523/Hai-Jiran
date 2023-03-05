@@ -19,7 +19,7 @@ struct UpdateProfileView: View {
     @State var currentJob:String = ""
     @State var fullAddress:String = ""
     
-    @State var currentUser = UserList
+    @EnvironmentObject var User : UserData
     var body: some View {
         VStack {
             Spacer().frame(height: 20)
@@ -28,7 +28,7 @@ struct UpdateProfileView: View {
             HStack{
                 Text("Full Name: ")
                 Spacer()
-                TextField(currentUser.fullName, text: $fullname)
+                TextField(User.UserList[0].fullName, text: $fullname)
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
@@ -38,7 +38,7 @@ struct UpdateProfileView: View {
             HStack{
                 Text("Profile Name:")
                 Spacer()
-                TextField(currentUser.profileName, text: $profileName)
+                TextField(User.UserList[0].profileName, text: $profileName)
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
@@ -48,7 +48,7 @@ struct UpdateProfileView: View {
             HStack{
                 Text("Age:")
                 Spacer()
-                TextField(currentUser.userAge, text: $Age)
+                TextField(User.UserList[0].userAge, text: $Age)
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
@@ -58,7 +58,7 @@ struct UpdateProfileView: View {
             HStack{
                 Text("Mobile Number:")
                 Spacer()
-                TextField(currentUser.mobileNum, text:  $mobileNumber)
+                TextField(User.UserList[0].mobileNum, text:  $mobileNumber)
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
@@ -68,7 +68,7 @@ struct UpdateProfileView: View {
             HStack{
                 Text("Current Job:")
                 Spacer()
-                TextField(currentUser.currentJob, text:  $currentJob)
+                TextField(User.UserList[0].currentJob, text:  $currentJob)
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
@@ -111,12 +111,12 @@ struct UpdateProfileView: View {
     }
     
     func confirm(){
-        UserList.fullName = self.fullname
-        UserList.profileName = self.profileName
-        UserList.userAge = self.Age
-        UserList.mobileNum = self.mobileNumber
-        UserList.currentJob = self.currentJob
-        UserList.fullAddress = self.fullAddress
+        User.UserList[0].fullName = self.fullname
+        User.UserList[0].profileName = self.profileName
+        User.UserList[0].userAge = self.Age
+        User.UserList[0].mobileNum = self.mobileNumber
+        User.UserList[0].currentJob = self.currentJob
+        User.UserList[0].fullAddress = self.fullAddress
         presentationMode.wrappedValue.dismiss()
     }
     

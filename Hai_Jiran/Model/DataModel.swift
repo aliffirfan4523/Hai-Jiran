@@ -40,7 +40,7 @@ struct PenggunaModel : Identifiable, Codable{
     
 }
 
-var UserList = PenggunaModel(email: "test", password: "123", fullName: "Ahmad Albab", profileName: "ahmad albab", Age: "20", mobileNum: "012345678", currentJob: "programmer", fullAddress: "jalan binjai")
+
 
 
 
@@ -108,16 +108,5 @@ struct HomesView_Previews: PreviewProvider {
     }
 }
 
-var newInfos = [
-   Info(name: "Ahmaaad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam", image: UIImage(), title: "", date: Date.now, description: "", contactNum: "", personName: ""),
-]
-
-var myInfos = [
-   Info(name: "Ahmaaad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam", image: UIImage(), title: "", date: Date.now, description: "", contactNum: "", personName: ""),
-]
-
-var completedInfos = [
-   Info(name: "Ahmaaad Naufal", details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam", image: UIImage(), title: "", date: Date.now, description: "", contactNum: "", personName: ""),
-]
 
 
