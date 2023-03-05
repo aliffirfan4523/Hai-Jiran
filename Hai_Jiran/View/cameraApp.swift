@@ -13,11 +13,11 @@ struct cameraApp: View {
     @State private var showImagePicker: Bool = false
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     
-    @State private var image: UIImage?
+    @State  var image: UIImage?
     
     var body: some View {
         
-        NavigationView{
+        NavigationStack{
             
             VStack{
                 

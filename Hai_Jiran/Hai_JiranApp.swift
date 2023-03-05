@@ -11,7 +11,10 @@ import SwiftUI
 struct Hai_JiranApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreenView()
         }
     }
 }
+
+//Target 'Hai_Jiran' (project 'Hai_Jiran') has copy command from '/Users/stdcuser/Downloads/Hai_Jiran/Hai_Jiran/Info.plist' to '/Users/stdcuser/Library/Developer/Xcode/DerivedData/Hai_Jiran-buyorllkumjijddsvbrseobkvndf/Build/Products/Debug-iphoneos/Hai_Jiran.app/Info.plist'
+

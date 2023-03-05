@@ -10,11 +10,9 @@ import SwiftUI
 struct AddInfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @State var currentUser = UserList
     @State private var detailsString = ""
     @State private var titleString = ""
     @State private var date = Date.now
-    @State private var image = UIImage()
     @State private var descriptionString = ""
     @State private var contactNumString = ""
     @State private var PersonNameString = ""
@@ -92,7 +90,7 @@ struct AddInfoView: View {
                 }
             }
             Spacer()
-        }.padding(40)
+        }.padding(30)
             .alert(isPresented: $showAlert) {
                         Alert(title: Text("Error"), message: Text("Please fill in all required fields."), dismissButton: .default(Text("OK")))
                     }
@@ -105,7 +103,7 @@ struct AddInfoView: View {
                 showAlert = true
         }else{
             // Add the new info to the array
-            newInfos.append(Info(name: currentUser.profileName, details: detailsString, image: UIImage(), title: titleString, date: date, description: descriptionString, contactNum: contactNumString, personName: PersonNameString))
+            newInfos.append(Info(name: currentUser.profileName, details: detailsString, picture: UIImage(), title: titleString, date: date, description: descriptionString, contactNum: contactNumString, personName: PersonNameString))
             // Close the page
             presentationMode.wrappedValue.dismiss()
         }

@@ -9,13 +9,17 @@ import SwiftUI
 
 
 struct UpdateProfileView: View {
+    @Environment(\.presentationMode) var presentationMode
     
-    @State var fullname:String = ""
+
+    @State var fullname:String =  ""
     @State var profileName:String = ""
     @State var Age:String = ""
     @State var mobileNumber:String = ""
     @State var currentJob:String = ""
-    @State var Address:String = ""
+    @State var fullAddress:String = ""
+    
+    @State var currentUser = UserList
     var body: some View {
         VStack {
             Spacer().frame(height: 20)
@@ -44,7 +48,7 @@ struct UpdateProfileView: View {
             HStack{
                 Text("Age:")
                 Spacer()
-                TextField(currentUser.Age, text: $Age)
+                TextField(currentUser.userAge, text: $Age)
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
@@ -54,7 +58,7 @@ struct UpdateProfileView: View {
             HStack{
                 Text("Mobile Number:")
                 Spacer()
-                TextField(currentUser.mobileNum, text: $mobileNumber)
+                TextField(currentUser.mobileNum, text:  $mobileNumber)
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
@@ -64,7 +68,7 @@ struct UpdateProfileView: View {
             HStack{
                 Text("Current Job:")
                 Spacer()
-                TextField(currentUser.currentJob, text: $currentJob)
+                TextField(currentUser.currentJob, text:  $currentJob)
                     .padding(4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
@@ -74,7 +78,7 @@ struct UpdateProfileView: View {
             HStack{
                 Text("Full Address:")
                 Spacer()
-                TextEditor(text: $Address)
+                TextEditor(text:  $fullAddress)
                     .foregroundColor(.secondary)
                     .padding(.horizontal)
                     .overlay(
@@ -107,13 +111,13 @@ struct UpdateProfileView: View {
     }
     
     func confirm(){
-        currentUser.fullName = fullname
-        currentUser.profileName = profileName
-        currentUser.Age = Age
-        currentUser.mobileNum = mobileNumber
-        currentUser.currentJob = currentJob
-        currentUser.fullAddress = Address
-        clear()
+        UserList.fullName = self.fullname
+        UserList.profileName = self.profileName
+        UserList.userAge = self.Age
+        UserList.mobileNum = self.mobileNumber
+        UserList.currentJob = self.currentJob
+        UserList.fullAddress = self.fullAddress
+        presentationMode.wrappedValue.dismiss()
     }
     
     func clear(){
@@ -122,7 +126,7 @@ struct UpdateProfileView: View {
         Age = ""
         mobileNumber = ""
         currentJob = ""
-        Address = ""
+        fullAddress = ""
     }
 }
 
@@ -134,7 +138,7 @@ struct UpdateProfileView_Previews: PreviewProvider {
             Age: "",
             mobileNumber: "",
             currentJob: "",
-            Address: ""
+            fullAddress: ""
         )
     }
 }

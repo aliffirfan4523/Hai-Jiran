@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView : View{
     @State private var selectedTab: Int = 0
+    @State var currentUser = UserList
     @State var changeTab = true
     let tabs : [Tab] = [
         .init(icon: Image(systemName: "globe"), title: "Whats New?"),
@@ -49,12 +50,12 @@ struct HomeView : View{
                             Spacer().frame(height: 30)
                             CircleImage()
                             Spacer().frame(height: 20)
-                            Text("Hi " + currentUser.profileName).foregroundColor(.white).font(.custom("Avenier", size: 25))
+                            Text("Hi " + UserList.profileName).foregroundColor(.white).font(.custom("Avenier", size: 25))
                         }
                     }.edgesIgnoringSafeArea(.top)
                         .frame(height: 190)
                     Spacer(minLength: 0)
-                    NavigationView{
+                    NavigationStack{
                         GeometryReader{
                             geo in
                             VStack(spacing:0){

@@ -9,12 +9,17 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
-
+    
     @State private var selection: String = "house"
     @State private var tbHeight = CGFloat.zero
+    @State var barItems = [
+        Item(title: "Map", color: .red, icon: "map", items: SelectionPage(selectedPage: 2)),
+        Item(title: "house", color: .white, icon: "house", items: SelectionPage(selectedPage: 1)),
+        Item(title: "Service", color: .green, icon: "gearshape.2", items: SelectionPage(selectedPage: 3)),
+    ]
     
     var selected: Item {
-        items.first { $0.title == selection } ?? items[0]
+        barItems.first { $0.title == selection } ?? barItems[0]
     }
     
     init() {
@@ -25,30 +30,32 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selection) {
-                ForEach(items, id: \.title) { item in
+                ForEach(barItems, id: \.title) { item in
                     TabContent(height: $tbHeight) {
                         item.items
                     }.tabItem {
-                        Image(systemName: item.icon)
-                        Text(item.title)
+                        if selection != item.title {
+                            Image(systemName: item.icon)
+                            Text(item.title)
+                            
+                        }
                     }
-                    
                 }
             }
             .onChange(of: selection) { title in
                 let target = 1
-                if var i = items.firstIndex(where: { $0.title == title }) {
+                if var i = barItems.firstIndex(where: { $0.title == title }) {
                     if i > target {
                         i += 1
                     }
-                    items.move(fromOffsets: IndexSet(integer: target), toOffset: i)
+                    barItems.move(fromOffsets: IndexSet(integer: target), toOffset: i)
                 }
             }
             
-            
             SOS_Button()
-        }
+        }.ignoresSafeArea(.keyboard, edges: .bottom)
     }
+    
     
     struct TabContent<V: View>: View {
         @Binding var height: CGFloat
@@ -63,7 +70,6 @@ struct ContentView: View {
             }
         }
     }
-    }
     
     
     struct ContentView_Previews: PreviewProvider {
@@ -71,4 +77,4 @@ struct ContentView: View {
             ContentView()
         }
     }
-
+}

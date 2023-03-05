@@ -11,7 +11,7 @@ import SwiftUI
 
 struct NewInfoListView: View {
     @State private var isSwiped = false
-    @State var newinfo: [Info] = infos
+    @State var newinfo: [Info] = newInfos
     
     var body: some View {
         NavigationStack {
@@ -24,48 +24,48 @@ struct NewInfoListView: View {
                                 ChatRow(name: info.name, details: info.details)
                             }
                         
-                        .swipeActions(edge: .trailing,allowsFullSwipe: true, content: {
-                            Button(role: .destructive, action: {
-                                newinfo = infos
-                            }, label: {
-                                Label("Delete", systemImage: "trash")
-                            })
+                        .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
                             Button(role: .none, action: {
-                                newinfo = infos
                             }, label: {
-                                Label("Delete", systemImage: "trash")
-                            })
+                                Label("Read", systemImage: "doc.text.magnifyingglass")
+                            }).tint(.green)
+                            Button(role: .destructive, action: {
+                                
+                            }, label: {
+                                Label("Share", systemImage: "square.and.arrow.up")
+                            }).tint(.blue)
                         })
                 }
             }
             .listStyle(PlainListStyle())
             .onAppear {
                 // Get the latest data from the array and update the state variable
-                newinfo = infos
+                newinfo = newInfos
             }
         }
             
         
     }
     func delete(at offsets: IndexSet) {
-        infos.remove(atOffsets: offsets)
+        newInfos.remove(atOffsets: offsets)
         }
 }
 
 struct MyInfoListView_Previews: PreviewProvider {
     static var previews: some View {
-        MyInfoListView()
+        CompletedInfoListView()
     }
 }
 
 struct MyInfoListView: View {
     @State private var isSwiped = false
+    @State var myInfo: [Info] = myInfos
 
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(infos) { info in
+                ForEach(myInfo) { info in
                     Button(action: {
                         withAnimation {
                                         self.isSwiped.toggle()
@@ -84,12 +84,12 @@ struct MyInfoListView: View {
                                 
                             }, label: {
                                 Label("Edit", systemImage: "square.and.pencil")
-                            }).tint(.gray)
+                            }).tint(.red)
                             Button(role: .none, action: {
                                 
                             }, label: {
                                 Label("Share", systemImage: "square.and.arrow.up")
-                            }).tint(.yellow)
+                            }).tint(.blue)
                             
                         })
                 }
@@ -100,18 +100,18 @@ struct MyInfoListView: View {
         
     }
     func delete(at offsets: IndexSet) {
-        infos.remove(atOffsets: offsets)
+        myInfos.remove(atOffsets: offsets)
         }
 }
 
 struct CompletedInfoListView: View {
     @State private var isSwiped = false
-
+    @State var completedInfo: [Info] = completedInfos
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(infos) { info in
+                ForEach(completedInfo) { info in
                     Button(action: {
                                 withAnimation {
                                 }
@@ -119,14 +119,11 @@ struct CompletedInfoListView: View {
                                 CompletedChatRow(name: info.name, details: info.details)
                             }
                         
-                        .swipeActions(edge: .trailing,allowsFullSwipe: true, content: {
+                        .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
                             Button(role: .destructive, action: {
-                                
-                            }, label: {
-                                Label("Delete", systemImage: "trash")
-                            })
-                            Button(role: .none, action: {
-                                
+                                if let index = completedInfo.firstIndex(where: { $0.id == info.id }) {
+                                    completedInfo.remove(at: index)
+                                }
                             }, label: {
                                 Label("Delete", systemImage: "trash")
                             })
@@ -139,6 +136,6 @@ struct CompletedInfoListView: View {
         
     }
     func delete(at offsets: IndexSet) {
-        infos.remove(atOffsets: offsets)
+        completedInfos.remove(atOffsets: offsets)
         }
 }

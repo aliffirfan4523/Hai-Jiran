@@ -63,6 +63,13 @@ struct SlidingTabs: View {
 }
 
 struct SlidigTabView_Previews: PreviewProvider {
+    let tabs : [Tab] = [
+        .init(icon: Image(systemName: "globe"), title: "Whats New?"),
+        .init(icon: Image(systemName: "globe"),title: "My Info"),
+        .init(icon: Image(systemName: "globe"),title: "Completed")
+    ]
+    @State private var selectedTab: Int = 0
+    
     static var previews: some View {
         HomeView()
     }

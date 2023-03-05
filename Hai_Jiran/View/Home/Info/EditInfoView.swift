@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct AddInfoView: View {
+struct EditInfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var currentUser = UserList
     @State private var detailsString = ""
     @State private var titleString = ""
     @State private var date = Date.now
-    @State private var image = UIImage()
     @State private var descriptionString = ""
     @State private var contactNumString = ""
     @State private var PersonNameString = ""
@@ -22,7 +21,7 @@ struct AddInfoView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text("I want to tell something...")
+            Text("Edit info")
                 .font(.custom("Avenir", size: 20))
                 .bold()
             TextEditor(text: $detailsString)
@@ -92,7 +91,7 @@ struct AddInfoView: View {
                 }
             }
             Spacer()
-        }.padding(40)
+        }.padding(30)
             .alert(isPresented: $showAlert) {
                         Alert(title: Text("Error"), message: Text("Please fill in all required fields."), dismissButton: .default(Text("OK")))
                     }
@@ -113,9 +112,9 @@ struct AddInfoView: View {
         
     }
     
-    struct AddInfo_Previews: PreviewProvider {
+    struct EditInfoView_Previews: PreviewProvider {
         static var previews: some View {
-            AddInfoView()
+            EditInfoView()
         }
     }
 }
