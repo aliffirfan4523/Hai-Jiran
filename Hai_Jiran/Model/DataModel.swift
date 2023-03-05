@@ -40,6 +40,7 @@ struct PenggunaModel : Identifiable, Codable{
     
 }
 
+var UserList = PenggunaModel(email: "test", password: "123", fullName: "Ahmad Albab", profileName: "ahmad albab", Age: "20", mobileNum: "012345678", currentJob: "programmer", fullAddress: "jalan binjai")
 
 
 
