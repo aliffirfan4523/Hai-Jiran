@@ -1,4 +1,3 @@
-//
 //  HomepageView.swift
 //  Hai_Jiran
 //
@@ -7,15 +6,41 @@
 
 import SwiftUI
 
-struct HomeView : View{
-    @State private var selectedTab: Int = 0
-    @EnvironmentObject var User : UserData
-    @State var changeTab = true
-    let tabs : [Tab] = [
+class HomeViewModel: ObservableObject {
+    
+    @Published var selectedTab: Int = 0
+    
+    @State var profileName = UserModel().UserList.profileName
+    
+    let tabs: [Tab] = [
         .init(icon: Image(systemName: "globe"), title: "Whats New?"),
         .init(icon: Image(systemName: "globe"),title: "My Info"),
         .init(icon: Image(systemName: "globe"),title: "Completed")
     ]
+    
+    func getSelectedTabView() -> AnyView {
+        switch selectedTab {
+        case 0:
+            return AnyView(NewInfoListView())
+        case 1:
+            return AnyView(MyInfoListView())
+        case 2:
+            return AnyView(CompletedInfoListView())
+        default:
+            return AnyView(Text(""))
+        }
+    }
+}
+
+struct HomeView : View{
+    @StateObject var viewModel = HomeViewModel()
+    
+    @StateObject var userData = UserModel()
+    
+    @EnvironmentObject var User : UserModel
+    
+    @State private var selectedTab: Int = 0
+    
     
     var body: some View{
         NavigationStack {
@@ -50,8 +75,8 @@ struct HomeView : View{
                             Spacer().frame(height: 30)
                             CircleImage()
                             Spacer().frame(height: 20)
-                            Text("Hi " + User.UserList[0].profileName).foregroundColor(.white).font(.custom("Avenier", size: 25))
-                        }
+                            Text("Hi " + viewModel.profileName).foregroundColor(.white).font(.custom("Avenier", size: 25))
+                        }.environmentObject(UserModel())
                     }.edgesIgnoringSafeArea(.top)
                         .frame(height: 190)
                     Spacer(minLength: 0)
@@ -60,18 +85,9 @@ struct HomeView : View{
                             geo in
                             VStack(spacing:0){
                                 //tabs
-                                SlidingTabs(tabs: tabs, geoWidth: geo.size.width, selectedTab: $selectedTab)
+                                SlidingTabs(tabs: viewModel.tabs, geoWidth: geo.size.width, selectedTab: $viewModel.selectedTab)
                                 //Views
-                                switch selectedTab {
-                                case 0:
-                                    AnyView(NewInfoListView())
-                                case 1:
-                                    AnyView(MyInfoListView())
-                                case 2:
-                                    AnyView(CompletedInfoListView())
-                                default:
-                                    AnyView(Text("s"))
-                                }
+                                viewModel.getSelectedTabView()
                                 
                                 /*TabView(selection: $selectedTab,
                                  content: {
@@ -80,12 +96,12 @@ struct HomeView : View{
                                  CompletedInfoListView().tag(2)
                                  }).tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                                  .disabled(true)*/
-                            }.animation(.linear, value: changeTab)
+                            }.animation(.linear, value: true)
                         }
                     }
-                }
+                }.environmentObject(User)
                 AddInfoButton()
-            }
+            }.environmentObject(User)
         }.accentColor(.black)
         
     }
@@ -94,7 +110,6 @@ struct HomeView : View{
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        ContentView()
     }
 }
-

@@ -10,7 +10,8 @@ import SwiftUI
 struct AddInfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var userList: UserData
+    @EnvironmentObject var userList: UserModel
+    
     @State private var detailsString = ""
     @State private var titleString = ""
     @State private var date = Date.now
@@ -105,17 +106,16 @@ struct AddInfoView: View {
                 showAlert = true
         }else{
             // Add the new info to the array
-            userList.newInfos.append(
-                Info(name: userList.UserList[0].profileName,
-                     details: detailsString,
-                     image: UIImage(),
-                     title: titleString,
-                     date: date,
-                     description: descriptionString,
-                     contactNum: contactNumString,
-                     personName: PersonNameString)
-            
-            )
+            let newData = Info(name: userList.UserList.profileName,
+                               details: detailsString,
+                               image: UIImage(),
+                               title: titleString,
+                               date: date,
+                               description: descriptionString,
+                               contactNum: contactNumString,
+                               personName: PersonNameString)
+            userList.newInfos.append(newData)
+            userList.myInfos.append(newData)
             // Close the page
             presentationMode.wrappedValue.dismiss()
         }

@@ -26,8 +26,9 @@ struct PenggunaModel : Identifiable, Codable{
     var mobileNum:String = ""
     var currentJob:String = ""
     var fullAddress:String = ""
+    var image: Data?
     
-    init(email: String, password: String, fullName: String, profileName: String, Age: String, mobileNum: String, currentJob: String, fullAddress: String) {
+    init(email: String, password: String, fullName: String, profileName: String, Age: String, mobileNum: String, currentJob: String, fullAddress: String, image: UIImage) {
         self.email = email
         self.password = password
         self.fullName = fullName
@@ -36,6 +37,7 @@ struct PenggunaModel : Identifiable, Codable{
         self.mobileNum = mobileNum
         self.currentJob = currentJob
         self.fullAddress = fullAddress
+        self.image = image.pngData()
     }
     
 }
@@ -62,6 +64,7 @@ struct Info: Codable, Identifiable {
     var description: String
     var contactNum: String
     var personName: String
+    
     
     init(id: UUID = UUID() ,name: String, details: String, image: UIImage, title: String, date: Date, description: String, contactNum: String, personName: String) {
         self.id = id

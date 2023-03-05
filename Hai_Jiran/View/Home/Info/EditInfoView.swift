@@ -10,7 +10,7 @@ import SwiftUI
 struct EditInfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var User : UserData
+    @EnvironmentObject var User : UserModel
     @State private var detailsString = ""
     @State private var titleString = ""
     @State private var date = Date.now
@@ -104,7 +104,7 @@ struct EditInfoView: View {
                 showAlert = true
         }else{
             // Add the new info to the array
-            User.newInfos.append(Info(name: User.UserList[0].profileName, details: detailsString, image: UIImage(), title: titleString, date: date, description: descriptionString, contactNum: contactNumString, personName: PersonNameString))
+            User.newInfos.append(Info(name: User.UserList.profileName, details: detailsString, image: UIImage(), title: titleString, date: date, description: descriptionString, contactNum: contactNumString, personName: PersonNameString))
             // Close the page
             presentationMode.wrappedValue.dismiss()
         }

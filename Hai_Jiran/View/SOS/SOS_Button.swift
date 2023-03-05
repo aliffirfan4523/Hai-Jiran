@@ -41,7 +41,7 @@ struct SOS_Button: View {
                     .rotationEffect(Angle(degrees: 90))
                     .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                     .shadow(color: Color.purple.opacity(0.3), radius: 5, x: 3, y: 3)
-                    .animation(.easeInOut)
+                    //.animation(.easeInOut)
                     
             )
             .shadow(color: Color(press ? .red : .white), radius: 1, x: -1, y: -1)
@@ -54,7 +54,7 @@ struct SOS_Button: View {
                 }
                 .onEnded { value in
                 self.press.toggle()
-                SOS_CallAll()
+                //SOS_CallAll()
                 }
         )
     }

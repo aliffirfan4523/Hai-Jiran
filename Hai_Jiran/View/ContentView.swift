@@ -8,8 +8,9 @@
 import SwiftUI
 import UIKit
 
+
 struct ContentView: View {
-    @StateObject var userData = UserData()
+    @StateObject var userData = UserModel()
     
     @State private var selection: String = "house"
     @State private var tbHeight = CGFloat.zero
@@ -53,8 +54,9 @@ struct ContentView: View {
                 }
             }
             SOS_Button()
-        }.ignoresSafeArea(.keyboard, edges: .bottom)
-            .environmentObject(userData)
+        }.environmentObject(UserModel())
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+            
     }
     
     
@@ -75,7 +77,7 @@ struct ContentView: View {
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-            ContentView()
+            ContentView().environmentObject(UserModel())
         }
     }
 }

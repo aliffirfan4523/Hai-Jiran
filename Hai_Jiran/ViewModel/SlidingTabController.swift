@@ -71,6 +71,6 @@ struct SlidigTabView_Previews: PreviewProvider {
     @State private var selectedTab: Int = 0
     
     static var previews: some View {
-        HomeView()
+        ContentView()
     }
 }

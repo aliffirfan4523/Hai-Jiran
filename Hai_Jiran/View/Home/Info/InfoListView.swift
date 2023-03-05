@@ -10,8 +10,9 @@ import SwiftUI
 
 
 struct NewInfoListView: View {
+    @StateObject var userData = UserModel()
     @State private var isSwiped = false
-    @EnvironmentObject var newInfo: UserData
+    @EnvironmentObject var newInfo: UserModel
     
     var body: some View {
         NavigationStack {
@@ -29,8 +30,8 @@ struct NewInfoListView: View {
                             }, label: {
                                 Label("Read", systemImage: "doc.text.magnifyingglass")
                             }).tint(.green)
-                            Button(role: .destructive, action: {
-                                
+                            Button(role: .cancel, action: {
+                                newInfo.share()
                             }, label: {
                                 Label("Share", systemImage: "square.and.arrow.up")
                             }).tint(.blue)
@@ -42,7 +43,7 @@ struct NewInfoListView: View {
                 // Get the latest data from the array and update the state variable
                 newInfo.newInfos = newInfo.newInfos
             }
-        }
+        }.environmentObject(userData)
             
         
     }
@@ -58,8 +59,9 @@ struct MyInfoListView_Previews: PreviewProvider {
 }
 
 struct MyInfoListView: View {
+    @StateObject var userData = UserModel()
     @State private var isSwiped = false
-    @EnvironmentObject var myInfo: UserData
+    @EnvironmentObject var myInfo: UserModel
 
     
     var body: some View {
@@ -75,8 +77,9 @@ struct MyInfoListView: View {
                             }
                         
                         .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
-                            Button(role: .none, action: {
-                                
+                            Button(role: .destructive, action: {
+                                add(info: info)
+                                delete(info: info)
                             }, label: {
                                 Label("Done", systemImage: "square.and.pencil")
                             }).tint(.green)
@@ -85,8 +88,8 @@ struct MyInfoListView: View {
                             }, label: {
                                 Label("Edit", systemImage: "square.and.pencil")
                             }).tint(.red)
-                            Button(role: .none, action: {
-                                
+                            Button(role: .cancel, action: {
+                                myInfo.share()
                             }, label: {
                                 Label("Share", systemImage: "square.and.arrow.up")
                             }).tint(.blue)
@@ -95,18 +98,27 @@ struct MyInfoListView: View {
                 }
             }
             .listStyle(PlainListStyle())
-        }
-            
-        
+        }.environmentObject(userData)
     }
-    func delete(at offsets: IndexSet) {
-        myInfo.myInfos.remove(atOffsets: offsets)
+    
+    
+    
+    func delete(info: Info) {
+
+        if let index = myInfo.myInfos.firstIndex(where: { $0.id == info.id }) {
+            myInfo.myInfos.remove(at: index)
+            myInfo.newInfos.remove(at: index)
         }
+    }
+    func add(info: Info) {
+
+        myInfo.completedInfos.append(info)
+    }
 }
 
 struct CompletedInfoListView: View {
     @State private var isSwiped = false
-    @EnvironmentObject var completedinfo: UserData
+    @EnvironmentObject var completedinfo: UserModel
     
     var body: some View {
         NavigationStack {
