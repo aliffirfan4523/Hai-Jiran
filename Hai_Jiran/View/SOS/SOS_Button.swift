@@ -69,7 +69,7 @@ struct SOS_Button: View {
             .navigationDestination(for: Int.self) { value in
                 Text("SOS")
             }
-            .sheet(isPresented: $isPresented) {
+            .fullScreenCover(isPresented: $isPresented) {
                 SOS_CallAll()
             }
         }
