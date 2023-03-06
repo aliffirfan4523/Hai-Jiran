@@ -8,42 +8,50 @@
 import SwiftUI
 
 struct SOS_Button: View {
+    
     @GestureState var tap = false
     @State var press = false
     
+    @State private var path: [Int] = []
+    @State private var isPresented: Bool = false
+    
     var body: some View {
         ZStack {
-            Image(systemName: "sos")
+            ZStack {
+                VStack {
+                    Image(systemName: "sos").font(.system(size: 44, weight: .light))
+                        
+                    Text("Hold 3 second").foregroundColor(Color.white)
+                }
                 .foregroundColor(.white)
-                .font(.system(size: 44, weight: .light))
                 .opacity(press ? 0 : 1)
                 .scaleEffect(press ? 0 : 1)
-            Image(systemName: "iphone.gen3.radiowaves.left.and.right")
-                .font(.system(size: 44, weight: .light))
-                .foregroundColor(Color(.white))
-                .opacity(press ? 1 : 0)
-                .scaleEffect(press ? 1 : 0)
+                Image(systemName: "iphone.gen3.radiowaves.left.and.right")
+                    .font(.system(size: 44, weight: .light))
+                    .foregroundColor(Color(.white))
+                    .opacity(press ? 1 : 0)
+                    .scaleEffect(press ? 1 : 0)
             }
-        .frame(width: 140, height: 80)
-        .background(
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color(press ? .red : .red), Color(press ? .red : .red)]), startPoint: .topLeading, endPoint: .bottomTrailing)
-            }
-        )
-            .clipShape(Rectangle())
+            
+            .frame(width: 140, height: 80)
+            .background(
+                ZStack {
+                    LinearGradient(gradient: Gradient(colors: [Color(press ? .red : .red), Color(press ? .red : .red)]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                })
+            
             .cornerRadius(20)
             .overlay(
-                    Rectangle()
+                RoundedRectangle(cornerRadius: 20)
                     .trim(from: tap ? 0.001 : 1, to: 1)
-                    .stroke(Color.white, style: StrokeStyle(lineWidth: 5, lineCap: .round))
-                    .frame(width: 80, height: 150)
-                    .cornerRadius(10)
+                    .stroke(Color.white, style: StrokeStyle(lineWidth: 3, lineCap: .round))
+                    .frame(width: 70, height: 130)
+                    .cornerRadius(20)
                     .rotationEffect(Angle(degrees: 90))
                     .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
-                    .shadow(color: Color.purple.opacity(0.3), radius: 5, x: 3, y: 3)
-                    //.animation(.easeInOut)
-                    
+                    .shadow(color: Color.white.opacity(0.3), radius: 5, x: 3, y: 3)
+                    .animation(.easeInOut)
             )
+            
             .shadow(color: Color(press ? .red : .white), radius: 1, x: -1, y: -1)
             .shadow(color: Color(press ? .white : .red), radius: 1, x: 1, y: 1)
             .scaleEffect(tap ? 1.3 : 1)
@@ -52,11 +60,19 @@ struct SOS_Button: View {
                     transaction in
                     gestureState = currentState
                 }
-                .onEnded { value in
-                self.press.toggle()
-                //SOS_CallAll()
-                }
-        )
+                    .onEnded { value in
+                        self.press.toggle()
+                        isPresented = true
+                    }
+            )
+            
+            .navigationDestination(for: Int.self) { value in
+                Text("SOS")
+            }
+            .sheet(isPresented: $isPresented) {
+                SOS_CallAll()
+            }
+        }
     }
 }
 

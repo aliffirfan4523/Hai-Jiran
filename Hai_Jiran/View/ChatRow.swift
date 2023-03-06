@@ -38,7 +38,6 @@ struct ChatRow: View {
                         .foregroundColor(Color(.black))
                         .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                     Spacer(minLength: 0)
-                    Image(systemName: "button.programmable").resizable().frame(width: 25, height: 25).padding()
                 }
                 Spacer(minLength: 0)
                 
@@ -79,7 +78,6 @@ struct CompletedChatRow: View {
                         .foregroundColor(Color(.black))
                         .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                     Spacer(minLength: 0)
-                    Image(systemName: "arrow.backward").resizable().frame(width: 25, height: 25).padding()
                 }
                 Spacer(minLength: 0)
                 
