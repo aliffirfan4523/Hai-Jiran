@@ -10,7 +10,7 @@ import SwiftUI
 struct EditInfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var User : UserModel
+    @State var info: Info = Info(name: "", details: "", image: UIImage(), title: "", date: Date(), description: "", contactNum: "", personName: "")
     @State private var detailsString = ""
     @State private var titleString = ""
     @State private var date = Date.now
@@ -18,6 +18,16 @@ struct EditInfoView: View {
     @State private var contactNumString = ""
     @State private var PersonNameString = ""
     @State private var showAlert = false
+    
+    init(info: Info) {
+            self.info = info
+            _detailsString = State(initialValue: info.details)
+            _titleString = State(initialValue: info.title)
+            _date = State(initialValue: info.date)
+            _descriptionString = State(initialValue: info.description)
+            _contactNumString = State(initialValue: info.contactNum)
+            _PersonNameString = State(initialValue: info.personName)
+        }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -99,22 +109,15 @@ struct EditInfoView: View {
     
     func tellThem() {
         // Check if any of the required fields is empty
-        if detailsString.isEmpty || titleString.isEmpty || descriptionString.isEmpty {
-                // Show an alert to the user
-                showAlert = true
-        }else{
-            // Add the new info to the array
-            User.newInfos.append(Info(name: User.UserList.profileName, details: detailsString, image: UIImage(), title: titleString, date: date, description: descriptionString, contactNum: contactNumString, personName: PersonNameString))
-            // Close the page
-            presentationMode.wrappedValue.dismiss()
-        }
+        // Update the info object with the values entered by the user
+        info.details = detailsString
+        info.title = titleString
+        info.date = date
+        info.description = descriptionString
+        info.contactNum = contactNumString
+        info.personName = PersonNameString
         
-        
-    }
-    
-    struct EditInfoView_Previews: PreviewProvider {
-        static var previews: some View {
-            EditInfoView()
-        }
+        // Close the page
+        presentationMode.wrappedValue.dismiss()
     }
 }

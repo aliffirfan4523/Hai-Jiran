@@ -8,6 +8,18 @@
 import SwiftUI
 
 struct ShowInfoView: View {
+    var info : Info = Info(
+        name: "Ahmasaad Naufsdafal",
+        details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam",
+        image: UIImage(),
+        title: "Esko",
+        date: Date.now,
+        description: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalamSaya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalamSaya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalamSaya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam",
+        contactNum: "",
+        personName: "")
+    
+    @Binding var showDetail : Bool
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -16,11 +28,12 @@ struct ShowInfoView: View {
                     Color("mainColorTheme")
                     
                     VStack {Spacer().frame(height: 99)
+                        Spacer().frame(height: 30)
                         HStack(){
-                            CircleImage().padding(EdgeInsets(top: 0, leading: 0, bottom: 35, trailing: 0))
+                            CircleImage(width: 90,height: 80).padding(EdgeInsets(top: 0, leading: 0, bottom: 35, trailing: 0))
                             VStack {
-                                Text("Ahmad Albab").foregroundColor(.white).bold().font(.custom("Avenier", size: 25))
-                                Text("017-9998 881").foregroundColor(.white).font(.custom("Avenier", size: 20))
+                                Text(info.name).foregroundColor(.white).bold().font(.custom("Avenier", size: 25))
+                                Text(info.contactNum).foregroundColor(.white).font(.custom("Avenier", size: 20))
                             }
                             Spacer().frame(width: 8)
                             
@@ -37,14 +50,14 @@ struct ShowInfoView: View {
                 }.padding(9)
                 VStack {
                     
-                    Text("Dengar kata kucing Kak Ton hilang, rantai leher nama 'Bujibu'...").frame(width: 379)
+                    Text(info.details).frame(width: 379)
                     
                     HStack {
                         Spacer().frame(width: 15)
                         Text("Title").bold()
                         
                         Spacer()
-                        Text("Kucing Kak Ton Hilang!!!").frame(height: 15)
+                        Text(info.title).frame(height: 15)
                         
                         Spacer()
                     }
@@ -68,12 +81,10 @@ struct ShowInfoView: View {
                     }
                     
                     
-                    HStack() {
-                        Spacer().frame(width: 13)
-                        Text("Kak Ton pergi ke pasar, dia terlupa nak tutup pintu sangkar Bujibu, Kak Ton balik je rumah Bujibu dah tiada dalam sangkar, sesiapa terjumpa Bujibu tolong hantar ke rumah Kak Ton.")
-                         
-                            
-                    }.padding(EdgeInsets(top: 10, leading: 1, bottom: 10, trailing: 10))
+                    HStack {
+                        Spacer().frame(width: 15)
+                        Text(info.description).padding(EdgeInsets(top: 10, leading: 1, bottom: 10, trailing: 10))
+                    }
                     Spacer()
                 }
             
@@ -102,13 +113,16 @@ struct ShowInfoView: View {
                 
                 Spacer()
             }
-        }.ignoresSafeArea()
+        }.ignoresSafeArea().onDisappear{
+            showDetail = false
+        }
+            
     }
     
     
     struct show_info_Previews: PreviewProvider {
         static var previews: some View {
-            ShowInfoView()
+            ContentView()
         }
     }
 }

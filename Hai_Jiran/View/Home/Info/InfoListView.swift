@@ -12,30 +12,30 @@ import SwiftUI
 struct NewInfoListView: View {
     @StateObject var userData = UserModel()
     @State private var isSwiped = false
+    @State private var showDetail = false
+    
     @EnvironmentObject var newInfo: UserModel
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(newInfo.newInfos) { info in
-                    Button(action: {
-                                withAnimation {
-                                }
-                            }) {
-                                ChatRow(name: info.name, details: info.details)
+                    NavigationLink(destination: ShowInfoView(info: info, showDetail: $showDetail), isActive: $showDetail){
+                        Button(action: {withAnimation {}}) {ChatRow(name: info.name, details: info.details)}
+                            .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
+                                Button(role: .none, action: {
+                                    self.showDetail.toggle()
+                                }, label: {
+                                    Label("Read", systemImage: "doc.text.magnifyingglass")
+                                }).tint(.green)
+                                Button(role: .cancel, action: {
+                                    newInfo.share()
+                                }, label: {
+                                    Label("Share", systemImage: "square.and.arrow.up")
+                                }).tint(.blue)
                             }
-                        
-                        .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
-                            Button(role: .none, action: {
-                            }, label: {
-                                Label("Read", systemImage: "doc.text.magnifyingglass")
-                            }).tint(.green)
-                            Button(role: .cancel, action: {
-                                newInfo.share()
-                            }, label: {
-                                Label("Share", systemImage: "square.and.arrow.up")
-                            }).tint(.blue)
-                        })
+                        )
+                    }
                 }
             }
             .listStyle(PlainListStyle())
@@ -60,7 +60,10 @@ struct MyInfoListView_Previews: PreviewProvider {
 
 struct MyInfoListView: View {
     @StateObject var userData = UserModel()
+    
     @State private var isSwiped = false
+    @State private var showDetail = false
+    
     @EnvironmentObject var myInfo: UserModel
 
     
@@ -68,13 +71,14 @@ struct MyInfoListView: View {
         NavigationStack {
             List {
                 ForEach(myInfo.myInfos) { info in
-                    Button(action: {
-                        withAnimation {
-                                        self.isSwiped.toggle()
-                                    }
-                            }) {
-                                ChatRow(name: info.name, details: info.details)
+                    NavigationLink(destination: ShowInfoView(info: info, showDetail: $showDetail), isActive: $showDetail){
+                        Button(action: {
+                            withAnimation {
+                                self.isSwiped.toggle()
                             }
+                        }) {
+                            ChatRow(name: info.name, details: info.details)
+                        }
                         
                         .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
                             Button(role: .destructive, action: {
@@ -83,11 +87,14 @@ struct MyInfoListView: View {
                             }, label: {
                                 Label("Done", systemImage: "square.and.pencil")
                             }).tint(.green)
-                            Button(role: .none, action: {
-                                
-                            }, label: {
-                                Label("Edit", systemImage: "square.and.pencil")
-                            }).tint(.red)
+                            NavigationLink(destination: EditInfoView(info: info), isActive: $showDetail){
+                                Button(role: .none, action: {
+                                    
+                                }, label: {
+                                    Label("Edit", systemImage: "square.and.pencil")
+                                }).tint(.red)
+                            }
+                            
                             Button(role: .cancel, action: {
                                 myInfo.share()
                             }, label: {
@@ -95,6 +102,9 @@ struct MyInfoListView: View {
                             }).tint(.blue)
                             
                         })
+                    }.onDisappear(){
+                        showDetail = false
+                    }
                 }
             }
             .listStyle(PlainListStyle())
