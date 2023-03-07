@@ -15,9 +15,10 @@ struct ContentView: View {
     @State private var selection: String = "house"
     @State private var tbHeight = CGFloat.zero
     @State var barItems = [
+        Item(title: "Home", color: .white, icon: "house", items: SelectionPage(selectedPage: 1)),
         Item(title: "Map", color: .red, icon: "map", items: SelectionPage(selectedPage: 2)),
-        Item(title: "house", color: .white, icon: "house", items: SelectionPage(selectedPage: 1)),
         Item(title: "Service", color: .green, icon: "gearshape.2", items: SelectionPage(selectedPage: 3)),
+        Item(title: "SOS", color: .red, icon: "sos.circle", items: SelectionPage(selectedPage: 4)),
     ]
     
     var selected: Item {
@@ -36,25 +37,14 @@ struct ContentView: View {
                     TabContent(height: $tbHeight) {
                         item.items
                     }.tabItem {
-                        if selection != item.title {
-                            Image(systemName: item.icon)
-                            Text(item.title)
-                            
-                        }
+                        Image(systemName: item.icon)
+                        Text(item.title)
+                        
                     }
                 }
             }
-            .onChange(of: selection) { title in
-                let target = 1
-                if var i = barItems.firstIndex(where: { $0.title == title }) {
-                    if i > target {
-                        i += 1
-                    }
-                    barItems.move(fromOffsets: IndexSet(integer: target), toOffset: i)
-                }
-            }
-            SOS_Call()
-        }.environmentObject(UserModel())
+        }
+        .environmentObject(UserModel())
         .ignoresSafeArea(.keyboard, edges: .bottom)
             
     }
