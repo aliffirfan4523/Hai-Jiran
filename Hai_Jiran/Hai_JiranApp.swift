@@ -16,5 +16,10 @@ struct Hai_JiranApp: App {
     }
 }
 
-//Target 'Hai_Jiran' (project 'Hai_Jiran') has copy command from '/Users/stdcuser/Downloads/Hai_Jiran/Hai_Jiran/Info.plist' to '/Users/stdcuser/Library/Developer/Xcode/DerivedData/Hai_Jiran-buyorllkumjijddsvbrseobkvndf/Build/Products/Debug-iphoneos/Hai_Jiran.app/Info.plist'
-
+struct StartingPages: View {
+    @StateObject var myData = UserModel()
+    
+    var body: some View {
+        ContentView().environmentObject(myData)
+    }
+}

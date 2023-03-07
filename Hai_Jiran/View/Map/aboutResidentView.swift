@@ -18,14 +18,16 @@ extension Color {
 struct AboutResidentView: View {
     var teamMembers: [TeamMember] = []
     var body: some View {
-        NavigationStack {
+        
             List(teamMembers) { teamMember in
                 TeamMemberCell(teamMember: teamMember)
             }//.navigationTitle("Group 5: Hi5! 🖐🏻")
                 .navigationDestination(for: TeamMember.self, destination: {
                     teamMember in TouFixDetailView(selectedTeamMember: teamMember)
-                })
-        }
+                }
+            )
+                .listStyle(PlainListStyle())
+        
     }
 }
 

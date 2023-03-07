@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChatRow: View {
+struct InfoRow: View {
     var name:String
     var details:String
     var body: some View {
@@ -88,6 +88,6 @@ struct CompletedChatRow: View {
 
 struct CompletedChatRow_Previews: PreviewProvider {
     static var previews: some View {
-        ChatRow(name: "Ahmad Albab", details: "afasdsdasfashassrasdsdaaga")
+        InfoRow(name: "Ahmad Albab", details: "afasdsdasfashassrasdsdaaga")
     }
 }

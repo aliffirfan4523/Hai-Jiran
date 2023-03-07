@@ -18,7 +18,7 @@ struct ShowInfoView: View {
         contactNum: "",
         personName: "")
     
-    @Binding var showDetail : Bool
+    
     
     var body: some View {
         ScrollView {
@@ -113,9 +113,7 @@ struct ShowInfoView: View {
                 
                 Spacer()
             }
-        }.ignoresSafeArea().onDisappear{
-            showDetail = false
-        }
+        }.ignoresSafeArea()
             
     }
     

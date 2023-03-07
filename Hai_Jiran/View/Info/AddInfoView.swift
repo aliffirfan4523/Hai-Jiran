@@ -7,31 +7,23 @@
 
 import SwiftUI
 
-struct EditInfoView: View {
+struct AddInfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @State var info: Info = Info(name: "", details: "", image: UIImage(), title: "", date: Date(), description: "", contactNum: "", personName: "")
+    @EnvironmentObject var userList: UserModel
+    
     @State private var detailsString = ""
     @State private var titleString = ""
     @State private var date = Date.now
+    @State private var image = UIImage()
     @State private var descriptionString = ""
     @State private var contactNumString = ""
     @State private var PersonNameString = ""
     @State private var showAlert = false
     
-    init(info: Info) {
-            self.info = info
-            _detailsString = State(initialValue: info.details)
-            _titleString = State(initialValue: info.title)
-            _date = State(initialValue: info.date)
-            _descriptionString = State(initialValue: info.description)
-            _contactNumString = State(initialValue: info.contactNum)
-            _PersonNameString = State(initialValue: info.personName)
-        }
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text("Edit info")
+            Text("I want to tell something...")
                 .font(.custom("Avenir", size: 20))
                 .bold()
             TextEditor(text: $detailsString)
@@ -101,7 +93,7 @@ struct EditInfoView: View {
                 }
             }
             Spacer()
-        }.padding(30)
+        }.padding(40)
             .alert(isPresented: $showAlert) {
                         Alert(title: Text("Error"), message: Text("Please fill in all required fields."), dismissButton: .default(Text("OK")))
                     }
@@ -109,15 +101,31 @@ struct EditInfoView: View {
     
     func tellThem() {
         // Check if any of the required fields is empty
-        // Update the info object with the values entered by the user
-        info.details = detailsString
-        info.title = titleString
-        info.date = date
-        info.description = descriptionString
-        info.contactNum = contactNumString
-        info.personName = PersonNameString
+        if detailsString.isEmpty || titleString.isEmpty || descriptionString.isEmpty {
+                // Show an alert to the user
+                showAlert = true
+        }else{
+            // Add the new info to the array
+            let newData = Info(name: userList.UserList[0].profileName,
+                               details: detailsString,
+                               image: UIImage(),
+                               title: titleString,
+                               date: date,
+                               description: descriptionString,
+                               contactNum: contactNumString,
+                               personName: PersonNameString)
+            userList.newInfos.append(newData)
+            userList.myInfos.append(newData)
+            // Close the page
+            presentationMode.wrappedValue.dismiss()
+        }
         
-        // Close the page
-        presentationMode.wrappedValue.dismiss()
+        
+    }
+    
+    struct AddInfo_Previews: PreviewProvider {
+        static var previews: some View {
+            AddInfoView()
+        }
     }
 }

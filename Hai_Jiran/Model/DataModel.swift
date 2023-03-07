@@ -42,19 +42,7 @@ struct PenggunaModel : Identifiable, Codable{
     
 }
 
-
-
-
-
-
-
-struct Infoo: Codable, Identifiable {
-    var id = UUID()
-    var name: String
-    var details: String
-}
-
-struct Info: Codable, Identifiable {
+struct Info: Codable, Identifiable, Hashable {
     var id = UUID()
     var name: String
     var details: String
@@ -107,7 +95,7 @@ extension Data {
 
 struct HomesView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        ContentView()
     }
 }
 

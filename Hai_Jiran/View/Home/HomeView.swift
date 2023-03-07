@@ -10,7 +10,7 @@ class HomeViewModel: ObservableObject {
     
     @Published var selectedTab: Int = 0
     
-    @State var profileName = UserModel().UserList.profileName
+    
     
     let tabs: [Tab] = [
         .init(icon: Image(systemName: "globe"), title: "Whats New?"),
@@ -30,20 +30,23 @@ class HomeViewModel: ObservableObject {
             return AnyView(Text(""))
         }
     }
+    
 }
 
 struct HomeView : View{
-    @StateObject var viewModel = HomeViewModel()
+    
+    @ObservedObject var userModel: UserModel = UserModel()
+    
+    @StateObject var viewModel: HomeViewModel = HomeViewModel()
     
     @StateObject var userData = UserModel()
     
-    @EnvironmentObject var User : UserModel
+    @EnvironmentObject var myData: UserModel
     
     @State private var selectedTab: Int = 0
     
-    
     var body: some View{
-        NavigationStack {
+        NavigationStack{
             ZStack {
                 VStack(){
                     ZStack{
@@ -75,7 +78,7 @@ struct HomeView : View{
                             Spacer().frame(height: 30)
                             CircleImage()
                             Spacer().frame(height: 20)
-                            Text("Hi " + viewModel.profileName).foregroundColor(.white).font(.custom("Avenier", size: 25))
+                            Text("Hi " + myData.UserList[0].profileName).foregroundColor(.white).font(.custom("Avenier", size: 25))
                         }.environmentObject(UserModel())
                     }.edgesIgnoringSafeArea(.top)
                         .frame(height: 190)
@@ -99,9 +102,9 @@ struct HomeView : View{
                             }.animation(.linear, value: true)
                         }
                     }
-                }.environmentObject(User)
+                }
                 AddInfoButton()
-            }.environmentObject(User)
+            }
         }.accentColor(.black)
         
     }

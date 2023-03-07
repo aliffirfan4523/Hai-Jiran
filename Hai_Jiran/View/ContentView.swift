@@ -10,6 +10,9 @@ import UIKit
 
 
 struct ContentView: View {
+    
+    @EnvironmentObject var myData: UserModel
+    
     @StateObject var userData = UserModel()
     
     @State private var selection: String = "house"
@@ -31,21 +34,22 @@ struct ContentView: View {
     }
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            TabView(selection: $selection) {
-                ForEach(barItems, id: \.title) { item in
-                    TabContent(height: $tbHeight) {
-                        item.items
-                    }.tabItem {
-                        Image(systemName: item.icon)
-                        Text(item.title)
-                        
+            ZStack(alignment: .bottom) {
+                TabView(selection: $selection) {
+                    ForEach(barItems, id: \.title) { item in
+                        TabContent(height: $tbHeight) {
+                            item.items
+                        }.tabItem {
+                            Image(systemName: item.icon)
+                            Text(item.title)
+                            
+                        }
                     }
                 }
-            }
-        }
-        .environmentObject(UserModel())
+            
+            .environmentObject(UserModel())
         .ignoresSafeArea(.keyboard, edges: .bottom)
+        }
             
     }
     

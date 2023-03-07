@@ -28,14 +28,13 @@ struct utilities: View {
                                 
                             }
                 }.frame(height: 150).ignoresSafeArea()*/
-                NavigationStack{
                     List(Resident) { teamMember in
                         ServiceRow(Resident: teamMember)
                     }//.navigationTitle("Group 5: Hi5! 🖐🏻")
-                        .navigationDestination(for: TeamMember.self, destination: {
+                    .listStyle(PlainListStyle())
+                    .navigationDestination(for: TeamMember.self, destination: {
                             teamMember in TouFixDetailView(selectedTeamMember: teamMember)
                         })
-                }
             }
         }
         

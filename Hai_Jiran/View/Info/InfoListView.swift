@@ -20,28 +20,35 @@ struct NewInfoListView: View {
         NavigationStack {
             List {
                 ForEach(newInfo.newInfos) { info in
-                    NavigationLink(destination: ShowInfoView(info: info, showDetail: $showDetail), isActive: $showDetail){
-                        Button(action: {withAnimation {}}) {ChatRow(name: info.name, details: info.details)}
-                            .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
-                                Button(role: .none, action: {
-                                    self.showDetail.toggle()
-                                }, label: {
-                                    Label("Read", systemImage: "doc.text.magnifyingglass")
-                                }).tint(.green)
-                                Button(role: .cancel, action: {
-                                    newInfo.share()
-                                }, label: {
-                                    Label("Share", systemImage: "square.and.arrow.up")
-                                }).tint(.blue)
-                            }
-                        )
+                    
+                    Button(action: {withAnimation {}}) {
+                        InfoRow(name: info.name, details: info.details)
+                        
+                        
                     }
+                        .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
+                            Button(role: .none, action: {
+                                self.showDetail.toggle()
+                            }, label: {
+                                Label("Read", systemImage: "doc.text.magnifyingglass")
+                            }).tint(.green)
+                            Button(role: .cancel, action: {
+                                newInfo.share()
+                            }, label: {
+                                Label("Share", systemImage: "square.and.arrow.up")
+                            }).tint(.blue)
+                        }
+                    )
                 }
             }
+            .navigationDestination(for: Info.self, destination: {
+                    info in ShowInfoView(info: info)
+                })
             .listStyle(PlainListStyle())
             .onAppear {
                 // Get the latest data from the array and update the state variable
                 newInfo.newInfos = newInfo.newInfos
+                print(newInfo.UserList[0])
             }
         }.environmentObject(userData)
             
@@ -71,13 +78,13 @@ struct MyInfoListView: View {
         NavigationStack {
             List {
                 ForEach(myInfo.myInfos) { info in
-                    NavigationLink(destination: ShowInfoView(info: info, showDetail: $showDetail), isActive: $showDetail){
+                    NavigationLink(destination: ShowInfoView(info: info), isActive: $showDetail){
                         Button(action: {
                             withAnimation {
                                 self.isSwiped.toggle()
                             }
                         }) {
-                            ChatRow(name: info.name, details: info.details)
+                            InfoRow(name: info.name, details: info.details)
                         }
                         
                         .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {

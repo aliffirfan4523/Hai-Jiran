@@ -25,12 +25,12 @@ struct ServicesView: View {
                             //.cornerRadius(10)
                     //}
                     
-                    Spacer(minLength: 30)
+                    Spacer(minLength: 50)
                     HStack{
                         Image(systemName: "message.fill")
-                        Link("Request ?", destination: URL(string: "https://www.youtube.com")!)
+                        Link("Request ?", destination: URL(string: "https://chat.whatsapp.com/GNvgwRKGdQv4rHW7Nxh1tC")!)
                     }
-                    Spacer(minLength: 70)
+                    Spacer(minLength: 30)
                         
                 }
                 

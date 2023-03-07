@@ -14,7 +14,7 @@ struct SplashScreenView: View {
     
     var body: some View {
         if  isActive {
-            ContentView()
+            StartingPages()
         } else {
             ZStack {
                 Color("mainColorTheme")

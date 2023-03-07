@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class UserModel: ObservableObject {
-    @Published var UserList: PenggunaModel =
+    @Published var UserList: [PenggunaModel] = [
         PenggunaModel(
             email: "test",
             password: "123",
@@ -20,7 +20,7 @@ class UserModel: ObservableObject {
             currentJob: "programmer",
             fullAddress: "jalan binjai",
             image: UIImage())
-    
+    ]
  
     @Published var newInfos = [
        Info(

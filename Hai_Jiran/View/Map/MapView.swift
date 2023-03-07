@@ -13,7 +13,7 @@ struct MapView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude:3.0757060910357494, longitude:101.49446084575956), span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
     
     var body: some View {
-        VStack {
+        NavigationStack {
             ZStack{
                 Color("mainColorTheme")
                 HStack(spacing:0){

@@ -20,7 +20,9 @@ struct SelectionPage:View {
             case 1 : HomeView()
             case 2 : MapView()
         case 3 : ServicesView()
-        case 4 : SOS_Call()
+        case 4 : HStack{
+            SOS_Call()
+        }
         default : Text("Under Construction🥲").frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
