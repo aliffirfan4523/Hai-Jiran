@@ -12,3 +12,13 @@ Main - ‘take’, ‘give’ & ‘stand’
 1. **Take** - request for help of services or specified things
 2. **Give** - information of closing road, death, open house, community event, etc.
 3. **Stand** - contact and reliable community organization example Ketua Taman and other AJK.
+
+### View needed to completed before wednesday
+
+- [x] Info View
+- [x] Add Info
+- [x] Update Info
+- [x] Delete Info
+- [ ] services view
+- [x] SOS view
+- [ ] Maps View
