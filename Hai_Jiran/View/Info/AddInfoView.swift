@@ -15,14 +15,14 @@ struct AddInfoView: View {
     @State private var detailsString = ""
     @State private var titleString = ""
     @State private var date = Date.now
-    @State private var image = UIImage()
+    @State private var image: UIImage? = UIImage()
     @State private var descriptionString = ""
     @State private var contactNumString = ""
     @State private var PersonNameString = ""
     @State private var showAlert = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .center, spacing: 5) {
             Text("I want to tell something...")
                 .font(.custom("Avenir", size: 20))
                 .bold()
@@ -32,7 +32,7 @@ struct AddInfoView: View {
                 .frame(width: .infinity, height: 70)
             
             //input image
-            cameraApp()
+            seccameraApp(image: $image)
             
             //title of image
             HStack{
@@ -108,7 +108,7 @@ struct AddInfoView: View {
             // Add the new info to the array
             let newData = Info(name: userList.UserList[0].profileName,
                                details: detailsString,
-                               image: UIImage(),
+                               image: image ?? UIImage(),
                                title: titleString,
                                date: date,
                                description: descriptionString,

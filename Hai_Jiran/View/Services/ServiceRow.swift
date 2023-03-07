@@ -49,6 +49,19 @@ struct ServiceRow: View {
                 }
                 Spacer()
             }.frame(height: 70)
+                .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
+                    Button(role: .none, action: {
+                        
+                    }, label: {
+                        Label("Read", systemImage: "doc.text.magnifyingglass")
+                    }).tint(.green)
+                    Button(role: .cancel, action: {
+                        
+                    }, label: {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                    }).tint(.blue)
+                }
+            )
         }
     }
 }

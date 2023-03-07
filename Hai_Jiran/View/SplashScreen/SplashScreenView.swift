@@ -28,7 +28,7 @@ struct SplashScreenView: View {
                         .frame(width: 195, height: 70)
                     Text("Make a Stronger Bond Between Neighbour!")
                         .font(Font.custom("HanziPen TC-Regular", size: 15))
-                        .foregroundColor(.gray)
+                        .foregroundColor(.white)
                 }
                 .scaleEffect(size)
                 .opacity(opacity)

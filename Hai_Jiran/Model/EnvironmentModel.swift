@@ -61,7 +61,14 @@ class UserModel: ObservableObject {
     func share() {
         let text = "Check out my app!"
         let url = URL(string: "https://chat.openai.com/")!
+        
         let activityViewController = UIActivityViewController(activityItems: [text, url], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+        
+        if let popoverController = activityViewController.popoverPresentationController {
+                popoverController.sourceView = UIApplication.shared.windows.first
+                popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY, width: 0, height: 0)
+                popoverController.permittedArrowDirections = []
+            }
     }
 }

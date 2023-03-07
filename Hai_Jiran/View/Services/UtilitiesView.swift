@@ -14,7 +14,7 @@ struct utilities: View {
     var body: some View {
         
         NavigationStack {
-            VStack {
+            //VStack {
                 /*ZStack(alignment: .bottom){
                     Color("mainColorTheme")
                             VStack{
@@ -35,7 +35,7 @@ struct utilities: View {
                     .navigationDestination(for: TeamMember.self, destination: {
                             teamMember in TouFixDetailView(selectedTeamMember: teamMember)
                         })
-            }
+            //}
         }
         
                 

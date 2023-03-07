@@ -10,29 +10,26 @@ class HomeViewModel: ObservableObject {
     
     @Published var selectedTab: Int = 0
     
-    
-    
     let tabs: [Tab] = [
         .init(icon: Image(systemName: "globe"), title: "Whats New?"),
         .init(icon: Image(systemName: "globe"),title: "My Info"),
         .init(icon: Image(systemName: "globe"),title: "Completed")
     ]
     
-    func getSelectedTabView() -> AnyView {
+    func getSelectedTabView(info: UserModel) -> AnyView {
         switch selectedTab {
         case 0:
-            return AnyView(NewInfoListView())
+            return AnyView(NewInfoListView(infoList: info.newInfos))
         case 1:
-            return AnyView(MyInfoListView())
+            return AnyView(MyInfoListView(infoList: info.myInfos))
         case 2:
-            return AnyView(CompletedInfoListView())
+            return AnyView(CompletedInfoListView(infoList: info.completedInfos))
         default:
             return AnyView(Text(""))
         }
     }
     
 }
-
 struct HomeView : View{
     
     @ObservedObject var userModel: UserModel = UserModel()
@@ -90,7 +87,7 @@ struct HomeView : View{
                                 //tabs
                                 SlidingTabs(tabs: viewModel.tabs, geoWidth: geo.size.width, selectedTab: $viewModel.selectedTab)
                                 //Views
-                                viewModel.getSelectedTabView()
+                                viewModel.getSelectedTabView(info: myData)
                                 
                                 /*TabView(selection: $selectedTab,
                                  content: {

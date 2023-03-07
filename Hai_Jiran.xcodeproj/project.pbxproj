@@ -14,7 +14,6 @@
 		912121FA29AC686E00F842BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912121F929AC686E00F842BD /* Preview Assets.xcassets */; };
 		9121220329AC936000F842BD /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9121220229AC936000F842BD /* CircleImageView.swift */; };
 		91679B4929AE184800AAF8CB /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91679B4829AE184800AAF8CB /* InfoRow.swift */; };
-		91679B4B29AE1F8100AAF8CB /* InfoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91679B4A29AE1F8100AAF8CB /* InfoListView.swift */; };
 		91679B4D29AE3A8700AAF8CB /* SelectionPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91679B4C29AE3A8700AAF8CB /* SelectionPageController.swift */; };
 		916FFF4429B314D300E85D02 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FFF4329B314D300E85D02 /* SplashScreenView.swift */; };
 		916FFF4629B3162B00E85D02 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FFF4529B3162B00E85D02 /* LoginView.swift */; };
@@ -31,6 +30,9 @@
 		919F77F229B6D067002D6889 /* residentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919F77EF29B6D067002D6889 /* residentDetailView.swift */; };
 		919F77F329B6D067002D6889 /* aboutResidentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919F77F029B6D067002D6889 /* aboutResidentView.swift */; };
 		919F77F729B6DC5D002D6889 /* LegalNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919F77F629B6DC5D002D6889 /* LegalNoticeView.swift */; };
+		919F780129B78E15002D6889 /* NewInfoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919F780029B78E15002D6889 /* NewInfoListView.swift */; };
+		919F780329B79973002D6889 /* MyInfoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919F780229B79973002D6889 /* MyInfoListView.swift */; };
+		919F780529B799A0002D6889 /* CompletedInfoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919F780429B799A0002D6889 /* CompletedInfoListView.swift */; };
 		91B95D8D29B301CF0014D585 /* EditInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B95D8C29B301CF0014D585 /* EditInfoView.swift */; };
 		91BD36CD29AF2AE000266F13 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36CC29AF2AE000266F13 /* MapView.swift */; };
 		91BD36D529AF86EB00266F13 /* AddInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36D429AF86EB00266F13 /* AddInfoButton.swift */; };
@@ -51,7 +53,6 @@
 		912121F929AC686E00F842BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9121220229AC936000F842BD /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		91679B4829AE184800AAF8CB /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
-		91679B4A29AE1F8100AAF8CB /* InfoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoListView.swift; sourceTree = "<group>"; };
 		91679B4C29AE3A8700AAF8CB /* SelectionPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionPageController.swift; sourceTree = "<group>"; };
 		916FFF4329B314D300E85D02 /* SplashScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		916FFF4529B3162B00E85D02 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -68,6 +69,10 @@
 		919F77EF29B6D067002D6889 /* residentDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = residentDetailView.swift; sourceTree = "<group>"; };
 		919F77F029B6D067002D6889 /* aboutResidentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aboutResidentView.swift; sourceTree = "<group>"; };
 		919F77F629B6DC5D002D6889 /* LegalNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNoticeView.swift; sourceTree = "<group>"; };
+		919F77FE29B78629002D6889 /* Hai-Jiran-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Hai-Jiran-Info.plist"; sourceTree = SOURCE_ROOT; };
+		919F780029B78E15002D6889 /* NewInfoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInfoListView.swift; sourceTree = "<group>"; };
+		919F780229B79973002D6889 /* MyInfoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoListView.swift; sourceTree = "<group>"; };
+		919F780429B799A0002D6889 /* CompletedInfoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedInfoListView.swift; sourceTree = "<group>"; };
 		91B95D8C29B301CF0014D585 /* EditInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoView.swift; sourceTree = "<group>"; };
 		91BD36CC29AF2AE000266F13 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		91BD36D429AF86EB00266F13 /* AddInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoButton.swift; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 		912121F129AC686E00F842BD /* Hai_Jiran */ = {
 			isa = PBXGroup;
 			children = (
+				919F77FE29B78629002D6889 /* Hai-Jiran-Info.plist */,
 				912121F229AC686E00F842BD /* Hai_JiranApp.swift */,
 				91BD36D229AF82C000266F13 /* ViewModel */,
 				91BD36D029AF827900266F13 /* Model */,
@@ -190,6 +196,16 @@
 			path = SplashScreen;
 			sourceTree = "<group>";
 		};
+		919F77FF29B78DFA002D6889 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				919F780029B78E15002D6889 /* NewInfoListView.swift */,
+				919F780229B79973002D6889 /* MyInfoListView.swift */,
+				919F780429B799A0002D6889 /* CompletedInfoListView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		91BD36D029AF827900266F13 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,8 +256,8 @@
 		91BD36D629AF872100266F13 /* Info */ = {
 			isa = PBXGroup;
 			children = (
+				919F77FF29B78DFA002D6889 /* List */,
 				919DAE8A29B3012F004C3DED /* AddInfoView.swift */,
-				91679B4A29AE1F8100AAF8CB /* InfoListView.swift */,
 				91FC9EAC29B04E8400EF2D31 /* UpdateProfileView.swift */,
 				91B95D8C29B301CF0014D585 /* EditInfoView.swift */,
 				911F912529B636150014DC59 /* ShowInfoView.swift */,
@@ -337,13 +353,15 @@
 				91FC9EAD29B04E8400EF2D31 /* UpdateProfileView.swift in Sources */,
 				919F77ED29B6D04F002D6889 /* UtilitiesView.swift in Sources */,
 				91BD36D529AF86EB00266F13 /* AddInfoButton.swift in Sources */,
+				919F780129B78E15002D6889 /* NewInfoListView.swift in Sources */,
 				91FC9EB129B0787500EF2D31 /* DataModel.swift in Sources */,
 				9184533F29B1E16100C9D415 /* cameraApp.swift in Sources */,
-				91679B4B29AE1F8100AAF8CB /* InfoListView.swift in Sources */,
 				919F77F729B6DC5D002D6889 /* LegalNoticeView.swift in Sources */,
 				919DAE8B29B3012F004C3DED /* AddInfoView.swift in Sources */,
 				911F912629B636150014DC59 /* ShowInfoView.swift in Sources */,
 				916FFF4429B314D300E85D02 /* SplashScreenView.swift in Sources */,
+				919F780529B799A0002D6889 /* CompletedInfoListView.swift in Sources */,
+				919F780329B79973002D6889 /* MyInfoListView.swift in Sources */,
 				912121F329AC686E00F842BD /* Hai_JiranApp.swift in Sources */,
 				919AC14229B4D673000290D1 /* EnvironmentModel.swift in Sources */,
 				916FFF4629B3162B00E85D02 /* LoginView.swift in Sources */,
@@ -482,6 +500,7 @@
 				DEVELOPMENT_TEAM = CF39254865;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hai-Jiran-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera required for capture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -512,6 +531,7 @@
 				DEVELOPMENT_TEAM = CF39254865;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hai-Jiran-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera required for capture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

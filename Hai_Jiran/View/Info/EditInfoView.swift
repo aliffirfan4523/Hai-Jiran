@@ -16,6 +16,7 @@ struct EditInfoView: View {
     @State private var date = Date.now
     @State private var descriptionString = ""
     @State private var contactNumString = ""
+    @State private var image: UIImage? = UIImage()
     @State private var PersonNameString = ""
     @State private var showAlert = false
     
@@ -40,7 +41,7 @@ struct EditInfoView: View {
                 .frame(width: .infinity, height: 70)
             
             //input image
-            cameraApp()
+            cameraApp(image: $image)
             
             //title of image
             HStack{
