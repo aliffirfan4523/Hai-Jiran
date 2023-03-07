@@ -53,7 +53,7 @@ struct ContentView: View {
                     barItems.move(fromOffsets: IndexSet(integer: target), toOffset: i)
                 }
             }
-            SOS_Button()
+            SOS_Call()
         }.environmentObject(UserModel())
         .ignoresSafeArea(.keyboard, edges: .bottom)
             

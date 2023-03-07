@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct utilities: View {
+    
+    var Resident: [TeamMember]
+    
     var body: some View {
         
         NavigationStack {
             VStack {
-                ZStack(alignment: .bottom){
+                /*ZStack(alignment: .bottom){
                     Color("mainColorTheme")
                             VStack{
                                 
@@ -24,13 +27,15 @@ struct utilities: View {
                                 
                                 
                             }
-                }.frame(height: 150).ignoresSafeArea()
-                List{
-                    ServiceRow(name: "Ahmad Zamri",exp: "25",workType: "Plumber")
-                    ServiceRow(name: "Ahmad Zamri",exp: "10",workType: "Mechanic")
-                    ServiceRow(name: "Ahmad Zamri",exp: "12",workType: "Electrician")
-                                        
-                }.listStyle(PlainListStyle())
+                }.frame(height: 150).ignoresSafeArea()*/
+                NavigationStack{
+                    List(Resident) { teamMember in
+                        ServiceRow(Resident: teamMember)
+                    }//.navigationTitle("Group 5: Hi5! 🖐🏻")
+                        .navigationDestination(for: TeamMember.self, destination: {
+                            teamMember in TouFixDetailView(selectedTeamMember: teamMember)
+                        })
+                }
             }
         }
         
@@ -46,6 +51,6 @@ struct utilities: View {
 
 struct utilities_Previews: PreviewProvider {
     static var previews: some View {
-        utilities()
+        utilities(Resident: testData)
     }
 }

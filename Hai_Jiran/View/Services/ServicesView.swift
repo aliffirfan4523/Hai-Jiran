@@ -16,28 +16,21 @@ struct ServicesView: View {
                 VStack{
                     
                     Spacer(minLength: 120)
+                    utilities(Resident: testData)
+                    //NavigationLink(destination: utilities(Resident: testData)){
+                      //  Label("Utilities", systemImage: "gear.circle")
+                        //    .frame(width:150,height:80)
+                          //  .foregroundColor(.black)
+                            //.background(Color("mainColorTheme"))
+                            //.cornerRadius(10)
+                    //}
                     
-                    NavigationLink(destination: utilities()){
-                        Label("Utilities", systemImage: "gear.circle")
-                            .frame(width:150,height:80)
-                            .foregroundColor(.white)
-                            .background(.black)
-                            .cornerRadius(10)
-                    }
-                    
-                    NavigationLink(destination: hailing()){
-                        Label("Hailing", systemImage: "car.fill")
-                            .frame(width:150,height:80)
-                            .foregroundColor(.white)
-                            .background(.black)
-                            .cornerRadius(10)
-                    }
                     Spacer(minLength: 30)
                     HStack{
                         Image(systemName: "message.fill")
                         Link("Request ?", destination: URL(string: "https://www.youtube.com")!)
                     }
-                    Spacer(minLength: 5)
+                    Spacer(minLength: 70)
                         
                 }
                 

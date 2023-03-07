@@ -10,7 +10,7 @@ import MapKit
 
 struct MapView: View {
     
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude:3.0757060910357494, longitude:101.49446084575956), span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
     
     var body: some View {
         VStack {
@@ -47,18 +47,9 @@ struct MapView: View {
                         }
             
             Text("Perumahan Taman Melawati").bold().underline()
-                                Spacer()
-            List{
-                MapProfileRow(name: "Razak Sensei", details: "")
-                MapProfileRow(name: "Zabedah Manap", details: "")
-                MapProfileRow(name: "Alif Berating", details: "")
-                MapProfileRow(name: "Salim Gorgon", details: "")
-                MapProfileRow(name: "Nazim Ilyas", details: "")
-                MapProfileRow(name: "Aminah munir", details: "")
-            }.listStyle(PlainListStyle())
-            
-            
-            
+            AboutResidentView(teamMembers: testData).ignoresSafeArea()
+                                //Spacer()
+         
         }
         
     }
@@ -70,39 +61,3 @@ struct MapView_Previews: PreviewProvider {
     }
 }
 
-struct MapProfileRow: View {
-    var name:String
-    var details:String
-    
-    var body: some View {
-        ZStack(alignment: .leading){
-            VStack{
-                Spacer().frame(height: 10)
-                ZStack {
-                    HStack {
-                        CircleImage(width: 150 , height: 90)
-                        Spacer().frame(width: 10)
-                        Text(name)
-                            .font(.system(size: 23,weight: .regular))
-                            .foregroundColor(Color(.black))
-                            .padding(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
-                        Spacer(minLength: 0)
-                        Spacer().frame(width: 10)
-                    }
-                    Spacer(minLength: 0)
-                    HStack {
-                        Text(details)
-                            .font(.system(size: 12,weight: .regular))
-                            .lineLimit(2)
-                            .foregroundColor(Color(.black))
-                            .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
-                        Spacer(minLength: 0)
-                        Image("chat_preview_icon").resizable().frame(width: 40, height: 40)
-                    }
-                    Spacer(minLength: 0)
-                    
-                }
-            }.frame(height: 90)
-        }
-    }
-}
