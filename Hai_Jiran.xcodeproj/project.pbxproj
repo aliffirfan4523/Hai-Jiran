@@ -36,6 +36,7 @@
 		91B95D8D29B301CF0014D585 /* EditInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B95D8C29B301CF0014D585 /* EditInfoView.swift */; };
 		91BD36CD29AF2AE000266F13 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36CC29AF2AE000266F13 /* MapView.swift */; };
 		91BD36D529AF86EB00266F13 /* AddInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD36D429AF86EB00266F13 /* AddInfoButton.swift */; };
+		91C0B67B29B868A800C67645 /* AboutMeProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0B67A29B868A800C67645 /* AboutMeProfileView.swift */; };
 		91C0D66F29B221C800684B97 /* ServiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0D66E29B221C800684B97 /* ServiceRow.swift */; };
 		91C0D67129B221E100684B97 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C0D67029B221E100684B97 /* ServicesView.swift */; };
 		91CCD94D29B6CAB600B9C5B1 /* SOSCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CCD94C29B6CAB600B9C5B1 /* SOSCallView.swift */; };
@@ -76,6 +77,7 @@
 		91B95D8C29B301CF0014D585 /* EditInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoView.swift; sourceTree = "<group>"; };
 		91BD36CC29AF2AE000266F13 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		91BD36D429AF86EB00266F13 /* AddInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoButton.swift; sourceTree = "<group>"; };
+		91C0B67A29B868A800C67645 /* AboutMeProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeProfileView.swift; sourceTree = "<group>"; };
 		91C0D66E29B221C800684B97 /* ServiceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRow.swift; sourceTree = "<group>"; };
 		91C0D67029B221E100684B97 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
 		91CCD94C29B6CAB600B9C5B1 /* SOSCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSCallView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				919F77FE29B78629002D6889 /* Hai-Jiran-Info.plist */,
 				912121F229AC686E00F842BD /* Hai_JiranApp.swift */,
+				912121F429AC686E00F842BD /* ContentView.swift */,
 				91BD36D229AF82C000266F13 /* ViewModel */,
 				91BD36D029AF827900266F13 /* Model */,
 				91BD36D129AF828200266F13 /* View */,
@@ -218,6 +221,7 @@
 		91BD36D129AF828200266F13 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				91C0B67929B8685800C67645 /* Camera */,
 				919F77FB29B6EA4F002D6889 /* SplashScreen */,
 				919F77FA29B6DCB8002D6889 /* Login */,
 				919F77F929B6DC9A002D6889 /* CircleImage */,
@@ -227,9 +231,6 @@
 				9135B40329B220DF007CDCAC /* Services */,
 				9135B40229B220C9007CDCAC /* Map */,
 				91BD36D329AF86BE00266F13 /* Home */,
-				912121F429AC686E00F842BD /* ContentView.swift */,
-				9184533E29B1E16100C9D415 /* cameraApp.swift */,
-				9184534029B1E18100C9D415 /* imagePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,9 +247,10 @@
 		91BD36D329AF86BE00266F13 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				91FC9EAC29B04E8400EF2D31 /* UpdateProfileView.swift */,
 				917CC7F729AF01E6005A151C /* HomeView.swift */,
-				91BD36D429AF86EB00266F13 /* AddInfoButton.swift */,
 				9184533A29B1E11C00C9D415 /* listOptionWhatsNew.swift */,
+				91C0B67A29B868A800C67645 /* AboutMeProfileView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -258,12 +260,21 @@
 			children = (
 				919F77FF29B78DFA002D6889 /* List */,
 				919DAE8A29B3012F004C3DED /* AddInfoView.swift */,
-				91FC9EAC29B04E8400EF2D31 /* UpdateProfileView.swift */,
 				91B95D8C29B301CF0014D585 /* EditInfoView.swift */,
 				911F912529B636150014DC59 /* ShowInfoView.swift */,
 				91679B4829AE184800AAF8CB /* InfoRow.swift */,
+				91BD36D429AF86EB00266F13 /* AddInfoButton.swift */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		91C0B67929B8685800C67645 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				9184533E29B1E16100C9D415 /* cameraApp.swift */,
+				9184534029B1E18100C9D415 /* imagePicker.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +367,7 @@
 				919F780129B78E15002D6889 /* NewInfoListView.swift in Sources */,
 				91FC9EB129B0787500EF2D31 /* DataModel.swift in Sources */,
 				9184533F29B1E16100C9D415 /* cameraApp.swift in Sources */,
+				91C0B67B29B868A800C67645 /* AboutMeProfileView.swift in Sources */,
 				919F77F729B6DC5D002D6889 /* LegalNoticeView.swift in Sources */,
 				919DAE8B29B3012F004C3DED /* AddInfoView.swift in Sources */,
 				911F912629B636150014DC59 /* ShowInfoView.swift in Sources */,
@@ -501,12 +513,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hai-Jiran-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Hai Jiran";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera required for capture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,12 +544,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hai-Jiran-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Hai Jiran";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera required for capture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

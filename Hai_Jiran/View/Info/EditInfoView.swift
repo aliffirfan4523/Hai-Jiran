@@ -18,7 +18,10 @@ struct EditInfoView: View {
     @State private var contactNumString = ""
     @State private var image: UIImage? = UIImage()
     @State private var PersonNameString = ""
+    
     @State private var showAlert = false
+    
+    @EnvironmentObject var myData: UserModel
     
     init(info: Info) {
             self.info = info
@@ -41,7 +44,7 @@ struct EditInfoView: View {
                 .frame(width: .infinity, height: 70)
             
             //input image
-            cameraApp(image: $image)
+            seccameraApp(image: $image)
             
             //title of image
             HStack{
@@ -96,11 +99,11 @@ struct EditInfoView: View {
                         .frame(width: 100, height: 35)
                     Button("Tell them!", action: {
                         //ContentView()
-                        tellThem()
+                        tellThem(myData: myData)
                     })
                     .foregroundColor(.white).bold()
                 }
-            }
+            }.environmentObject(myData)
             Spacer()
         }.padding(30)
             .alert(isPresented: $showAlert) {
@@ -108,8 +111,13 @@ struct EditInfoView: View {
                     }
     }
     
-    func tellThem() {
+    func tellThem(myData: UserModel) {
         // Check if any of the required fields is empty
+        guard !detailsString.isEmpty, !titleString.isEmpty, !descriptionString.isEmpty, !contactNumString.isEmpty, !PersonNameString.isEmpty else {
+            showAlert = true
+            return
+        }
+        
         // Update the info object with the values entered by the user
         info.details = detailsString
         info.title = titleString
@@ -118,9 +126,18 @@ struct EditInfoView: View {
         info.contactNum = contactNumString
         info.personName = PersonNameString
         
+        if let index = myData.myInfos.firstIndex(where: { $0.id == info.id }) {
+            // Replace the old info object with the updated one
+            myData.myInfos.replaceSubrange(index...index, with: [info])
+        } else {
+            // Add the new info object to the array
+            myData.myInfos.append(info)
+        }
+        
         // Close the page
         presentationMode.wrappedValue.dismiss()
     }
+
 }
 struct ContenstView_Previews: PreviewProvider {
     static var previews: some View {

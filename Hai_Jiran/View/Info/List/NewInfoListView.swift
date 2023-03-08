@@ -20,9 +20,10 @@ struct NewInfoListView: View {
     var body: some View {
         NavigationStack{
             List(infoList){ info in
-                InfoRow(info: info,name: info.name, details: info.details)
+                NewInfoRow(info: info,name: info.name, details: info.details)
                     .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
                         Button(role: .none, action: {
+                            print(info.date)
                         selectedInfo = info
                         }, label: {
                             Label("Read", systemImage: "doc.text.magnifyingglass")
@@ -39,7 +40,7 @@ struct NewInfoListView: View {
                 }
                 .background(
                     NavigationLink(
-                        destination: ShowInfoView(info: selectedInfo ?? info),
+                        destination: ShowInfoView(info: selectedInfo ?? info, userData: userData.UserList[0].image),
                         isActive: Binding(get: { selectedInfo != nil }, set: { _ in selectedInfo = nil }),
                             label: { EmptyView()
                         }

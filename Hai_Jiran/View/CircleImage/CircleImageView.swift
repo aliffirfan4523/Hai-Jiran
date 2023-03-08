@@ -10,22 +10,26 @@ import SwiftUI
 struct CircleImage: View {
     var width:CGFloat = 160
     var height:CGFloat = 110
+    var userData : Data?
+    
     
     var body: some View {
-          Image("ahmadalbab")
-            .resizable()
-            .frame(width: width, height: height)
-                .aspectRatio(contentMode: .fill)
-                     .clipShape(Circle())
-                     .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                     .shadow(radius: 10)
+        if let uiImage = UIImage(data: userData!)  {
+            Image(uiImage: uiImage)
+                .resizable()
+                .frame(width: width, height: height)
+                    .aspectRatio(contentMode: .fill)
+                         .clipShape(Circle())
+                         .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                         .shadow(radius: 10)
+        }
     }
 }
 
 #if DEBUG
 struct CircleImage_Previews: PreviewProvider {
     static var previews: some View {
-        CircleImage()
+        CircleImage(userData: UserModel().UserList[0].image)
     }
 }
 #endif

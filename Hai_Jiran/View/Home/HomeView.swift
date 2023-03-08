@@ -73,7 +73,9 @@ struct HomeView : View{
                         }
                         VStack{
                             Spacer().frame(height: 30)
-                            CircleImage()
+                            NavigationLink(destination: AboutMeProfileView(userdetails: myData.UserList[0])){
+                                CircleImage(userData: myData.UserList[0].image)
+                            }
                             Spacer().frame(height: 20)
                             Text("Hi " + myData.UserList[0].profileName).foregroundColor(.white).font(.custom("Avenier", size: 25))
                         }.environmentObject(UserModel())

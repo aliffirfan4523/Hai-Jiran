@@ -23,7 +23,7 @@ struct UpdateProfileView: View {
     var body: some View {
         VStack {
             Spacer().frame(height: 20)
-            CircleImage()
+            CircleImage(userData: myData.UserList[0].image)
             Text("Your Profiles:").font(.system(size: 25))
             HStack{
                 Text("Full Name: ")
@@ -78,7 +78,7 @@ struct UpdateProfileView: View {
             HStack{
                 Text("Full Address:")
                 Spacer()
-                TextEditor(text:  $fullAddress)
+                TextEditor(text:  $myData.UserList[0].fullAddress)
                     .foregroundColor(.secondary)
                     .padding(.horizontal)
                     .overlay(
@@ -111,7 +111,6 @@ struct UpdateProfileView: View {
     }
     
     func confirm(){
-        
         myData.UserList[0].fullName = fullname
         myData.UserList[0].profileName = profileName
         myData.UserList[0].userAge = Age

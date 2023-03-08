@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 class UserModel: ObservableObject {
+    
+    
+    
     @Published var UserList: [PenggunaModel] = [
         PenggunaModel(
             email: "test",
@@ -19,16 +22,16 @@ class UserModel: ObservableObject {
             mobileNum: "012345678",
             currentJob: "programmer",
             fullAddress: "jalan binjai",
-            image: UIImage())
+            image:  (UIImage(named: "ahmadalbab"))!)
     ]
  
     @Published var newInfos = [
        Info(
         name: "Ahmaaad Naufal",
         details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam",
-        image: UIImage(),
+        image: (UIImage(named: "eksiden"))!,
         title: "",
-        date: Date.now,
+        date: Date(),
         description: "",
         contactNum: "",
         personName: ""),
@@ -38,9 +41,9 @@ class UserModel: ObservableObject {
         Info(
          name: "Ahmaaad Naufal",
          details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam",
-         image: UIImage(),
+         image: (UIImage(named: "eksiden"))!,
          title: "",
-         date: Date.now,
+         date: Date(),
          description: "",
          contactNum: "",
          personName: ""),
@@ -52,7 +55,7 @@ class UserModel: ObservableObject {
          details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam",
          image: UIImage(),
          title: "",
-         date: Date.now,
+         date: Date(),
          description: "",
          contactNum: "",
          personName: ""),

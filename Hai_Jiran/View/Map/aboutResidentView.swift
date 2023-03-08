@@ -19,7 +19,7 @@ struct AboutResidentView: View {
     var teamMembers: [TeamMember] = []
     var body: some View {
         
-            List(teamMembers) { teamMember in
+            ForEach(teamMembers) { teamMember in
                 TeamMemberCell(teamMember: teamMember)
             }//.navigationTitle("Group 5: Hi5! 🖐🏻")
                 .navigationDestination(for: TeamMember.self, destination: {

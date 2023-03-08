@@ -21,7 +21,7 @@ struct MyInfoListView: View {
         
         NavigationStack{
             List(infoList){ info in
-                InfoRow(info: info,name: info.name, details: info.details)
+                MyInfoRow(info: info,name: info.name, details: info.details)
                     .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
                         Button(role: .destructive, action: {
                             add(info: info)
@@ -45,7 +45,7 @@ struct MyInfoListView: View {
                         
                     })
             }.navigationDestination(for: Info.self, destination: {
-                info in ShowInfoView(info: info)
+                info in ShowInfoView(info: info,userData: userData.UserList[0].image)
             }).environmentObject(userData)
             
                 .listStyle(PlainListStyle())

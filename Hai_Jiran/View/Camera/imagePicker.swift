@@ -22,14 +22,12 @@ class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImageP
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            image = uiImage
+            // Rotate image to correct orientation
+            let orientedImage = UIImage(cgImage: uiImage.cgImage!, scale: uiImage.scale, orientation: .up)
+            image = orientedImage
             isShown = false
         }
         
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        isShown = false
     }
 }
 

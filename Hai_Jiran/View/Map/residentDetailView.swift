@@ -51,12 +51,12 @@ struct TouFixDetailView: View {
                         }
                         //Link(selectedTeamMember.phone, destination: URL(string: "tel:\(selectedTeamMember.phone)")!)
                     }) {
-                        Image(systemName: "phone.fill")
+                        Image(systemName: "phone.circle")
                             .frame(maxWidth: 25, maxHeight: 25)
                             .padding()
                             .font(.body)
                             .foregroundColor(.white)
-                            .background(Color.red)
+                            .background(Color.green.opacity(0.9))
                             .cornerRadius(10)
                     }
                     Button(action: {

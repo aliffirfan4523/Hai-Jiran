@@ -14,7 +14,7 @@ struct AddInfoView: View {
     
     @State private var detailsString = ""
     @State private var titleString = ""
-    @State private var date = Date.now
+    @State private var date = Date()
     @State private var image: UIImage? = UIImage()
     @State private var descriptionString = ""
     @State private var contactNumString = ""
@@ -32,7 +32,8 @@ struct AddInfoView: View {
                 .frame(width: .infinity, height: 70)
             
             //input image
-            seccameraApp(image: $image)
+            seccameraApp(image: $image).overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(Color("mainColorTheme"), lineWidth: 2))
             
             //title of image
             HStack{
@@ -116,6 +117,7 @@ struct AddInfoView: View {
                                personName: PersonNameString)
             userList.newInfos.append(newData)
             userList.myInfos.append(newData)
+            print(newData)
             // Close the page
             presentationMode.wrappedValue.dismiss()
         }
