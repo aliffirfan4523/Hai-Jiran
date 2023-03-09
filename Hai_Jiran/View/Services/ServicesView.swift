@@ -15,8 +15,8 @@ struct ServicesView: View {
                 
                 VStack{
                     
-                    Spacer(minLength: 120)
-                    utilities(Resident: testData)
+                    Spacer(minLength: 110)
+                    utilities(Resident: UserModel().UserList)
                     //NavigationLink(destination: utilities(Resident: testData)){
                       //  Label("Utilities", systemImage: "gear.circle")
                         //    .frame(width:150,height:80)
@@ -39,11 +39,12 @@ struct ServicesView: View {
                         
                         VStack{
                             
-                            Spacer(minLength: 100)
+                            Spacer(minLength: 10)
                             Text("Services")
                                 .bold()
                                 .font(.title)
                                 .padding(30)
+                                .foregroundColor(.white)
                         }
                     }.edgesIgnoringSafeArea(.top)
                         .frame(height: 90)

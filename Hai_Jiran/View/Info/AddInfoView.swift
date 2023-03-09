@@ -115,7 +115,7 @@ struct AddInfoView: View {
                                description: descriptionString,
                                contactNum: contactNumString,
                                personName: PersonNameString)
-            //userList.newInfos.append(newData)
+            userList.newInfos.append(newData)
             userList.myInfos.append(newData)
             //print(newData)
             // Close the page

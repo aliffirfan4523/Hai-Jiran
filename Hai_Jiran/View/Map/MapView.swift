@@ -50,7 +50,7 @@ struct MapView: View {
                                 }
                     
                     Text("Perumahan Taman Melawati").bold().underline()
-                    AboutResidentView(teamMembers: testData).ignoresSafeArea()
+                    AboutResidentView(teamMembers: UserModel().UserList).ignoresSafeArea()
                     Spacer()
                 }
             }

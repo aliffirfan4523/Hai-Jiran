@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TouFixDetailView: View {
-    var selectedTeamMember: TeamMember
+    var selectedTeamMember: PenggunaModel
     
     @EnvironmentObject var newInfo: UserModel
     
@@ -24,34 +24,29 @@ struct TouFixDetailView: View {
             )
             .edgesIgnoringSafeArea(.top)
             VStack {
-                if let image = UIImage(named: selectedTeamMember.photoName),
-                   let imageData = image.jpegData(compressionQuality: 0.0) {
-                    let compressedImage = UIImage(data: imageData)
-                    Image(uiImage: compressedImage!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                if let data = selectedTeamMember.image, let uiImage = UIImage(data: data) {
+                    Image(uiImage: uiImage).resizable().resizable()
+                        .aspectRatio( contentMode:.fit)
                         .clipShape(Circle())
-                        .overlay(Circle().stroke(.white, lineWidth: 4))
+                        .overlay(Circle().stroke(
+                            .white, lineWidth: 4))
                         .shadow(radius: 7)
-                } else {
-                    // Handle invalid image name or data
                 }
-                Text(selectedTeamMember.name)
+                Text(selectedTeamMember.fullName)
                     .font(.title)
                     .foregroundColor(.black)
                     .bold()
                     .shadow(radius: 2)
-                Text(selectedTeamMember.description).font(.title2)
-                    .foregroundColor(.black)
+           
                 HStack {
-                    Text(selectedTeamMember.phone).bold()
+                    Text(selectedTeamMember.mobileNum).bold()
                     Spacer().frame(width: 50)
-                    Text(selectedTeamMember.address).bold()
+                    Text(selectedTeamMember.fullAddress).bold()
                 }
                 HStack(alignment: .top, spacing: 10){
                     Button(action: {
                         //print("Check my full bio at Web.")
-                        if let phoneURL = URL(string: "tel:\(selectedTeamMember.phone)") {
+                        if let phoneURL = URL(string: "tel:\(selectedTeamMember.mobileNum)") {
                             UIApplication.shared.open(phoneURL)
                         }
                         //Link(selectedTeamMember.phone, destination: URL(string: "tel:\(selectedTeamMember.phone)")!)
@@ -65,7 +60,7 @@ struct TouFixDetailView: View {
                             .cornerRadius(10)
                     }
                     Button(action: {
-                        if let link = URL(string:"https://wa.me/\(selectedTeamMember.phone)") {
+                        if let link = URL(string:"https://wa.me/\(selectedTeamMember.mobileNum)") {
                             UIApplication.shared.open(link)
                         }
                         //print("Text me at Whatsapp")
@@ -106,7 +101,7 @@ struct TouFixDetailView: View {
 
 struct TouFixDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TouFixDetailView(selectedTeamMember: testData[0])
+        TouFixDetailView(selectedTeamMember: UserModel().UserList[0])
     }
 }
 

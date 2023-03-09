@@ -135,11 +135,11 @@ struct CompletedChatRow: View {
 }
 
 func returnDateAgo(dateData : Date) -> String{
-    var date = dateData.addingTimeInterval(-15000)
+    let date = dateData.addingTimeInterval(-15000)
 
-    var formatter = RelativeDateTimeFormatter()
+    let formatter = RelativeDateTimeFormatter()
     formatter.unitsStyle = .full
-    var string = formatter.localizedString(for: date, relativeTo: Date())
+    let string = formatter.localizedString(for: date, relativeTo: Date())
     return string
 }
 

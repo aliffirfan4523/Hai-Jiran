@@ -9,7 +9,7 @@ import SwiftUI
 
 struct utilities: View {
     
-    var Resident: [TeamMember]
+    var Resident: [PenggunaModel]
     
     var body: some View {
         
@@ -32,7 +32,7 @@ struct utilities: View {
                         ServiceRow(Resident: teamMember)
                     }//.navigationTitle("Group 5: Hi5! 🖐🏻")
                     .listStyle(PlainListStyle())
-                    .navigationDestination(for: TeamMember.self, destination: {
+                    .navigationDestination(for: PenggunaModel.self, destination: {
                             teamMember in TouFixDetailView(selectedTeamMember: teamMember)
                         })
             //}
@@ -50,6 +50,6 @@ struct utilities: View {
 
 struct utilities_Previews: PreviewProvider {
     static var previews: some View {
-        utilities(Resident: testData)
+        utilities(Resident: UserModel().UserList)
     }
 }

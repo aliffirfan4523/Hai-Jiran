@@ -16,13 +16,13 @@ extension Color {
 }
 
 struct AboutResidentView: View {
-    var teamMembers: [TeamMember] = []
+    var teamMembers: [PenggunaModel] = []
     var body: some View {
         
             ForEach(teamMembers) { teamMember in
                 TeamMemberCell(teamMember: teamMember)
             }//.navigationTitle("Group 5: Hi5! 🖐🏻")
-                .navigationDestination(for: TeamMember.self, destination: {
+                .navigationDestination(for: PenggunaModel.self, destination: {
                     teamMember in TouFixDetailView(selectedTeamMember: teamMember)
                 }
             )
@@ -31,33 +31,31 @@ struct AboutResidentView: View {
     }
 }
 
-struct AboutTouFixView_Previews: PreviewProvider {
-    static var previews: some View {
-        AboutResidentView(teamMembers: testData)
-    }
-}
 
 struct TeamMemberCell: View {
-    var teamMember: TeamMember
+    var teamMember: PenggunaModel
     var body: some View {
         NavigationLink(value: teamMember) {
             VStack {
                 HStack {
-                    Image(teamMember.photoName).resizable()
-                        .frame(width: 64, height: 64)
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
-                        .overlay {
-                            Circle().stroke(.white, lineWidth: 2)
-                        }
-                        .shadow(radius: 7)
+                    Spacer().frame(width: 20)
+//                    Image(teamMember.image).resizable()
+//                        .frame(width: 64, height: 64)
+//                        .aspectRatio(contentMode: .fit)
+//                        .clipShape(Circle())
+//                        .overlay {
+//                            Circle().stroke(.white, lineWidth: 2)
+//                        }
+//                        .shadow(radius: 7)
+                    CircleImage(width: 64,height: 64,userData: teamMember.image)
                     Spacer().frame(width: 15)
                     VStack {
-                        Text(teamMember.name)
+                        Text(teamMember.fullName)
+                        
                             .font(.custom("Avenir", size: 25))
                             .bold()
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        Text(teamMember.description)
+                        Text(teamMember.fullAddress)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }.padding(5)

@@ -57,10 +57,8 @@ struct MyInfoListView: View {
     
     func delete(info: Info) {
 
-        if let index = myInfo.myInfos.firstIndex(where: { $0.id == info.id }) {
-            myInfo.myInfos.remove(at: index)
-            myInfo.newInfos.remove(at: index)
-        }
+        myInfo.myInfos.removeAll(where: { $0.title == info.title })
+            myInfo.newInfos.removeAll(where: { $0.title == info.title })
     }
     func add(info: Info) {
         myInfo.completedInfos.append(info)

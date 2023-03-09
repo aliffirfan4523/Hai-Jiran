@@ -19,7 +19,14 @@ struct TeamMember: Identifiable, Hashable {
 }
 
 let testData = [
-    TeamMember(photoName: "toufix", name: "TouFix", description: "ex-Padawan Purple Saber", phone: "60125819575", address: "no.40, lorong melawati", about: "Would like to greeting you all to come or stop-by at my house. Don't forget to bring any potluck that we can share-it, we sit, and we enjoy to last bit.",workType: "Mechanic"),
+    TeamMember(
+        photoName: "toufix",
+        name: "TouFix",
+        description: "ex-Padawan Purple Saber",
+        phone: "60125819575",
+        address: "no.40, lorong melawati",
+        about: "Would like to greeting you all to come or stop-by at my house. Don't forget to bring any potluck that we can share-it, we sit, and we enjoy to last bit.",
+        workType: "Mechanic"),
     
     TeamMember(photoName: "aliffirfan", name: "Aliff Irfan", description: "Leader of capybara", phone: "60183608467", address: "no.44, lorong melawati", about: "We are normally feed in the morning and evening and spend most of the day resting under cover along the banks.",workType: "Technician"),
     

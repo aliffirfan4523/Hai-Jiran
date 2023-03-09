@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Tab {
-    var icon: Image?
+    var icon: String
     var title: String
 }
 
@@ -35,7 +35,7 @@ struct SlidingTabs: View {
                                     .foregroundColor(Color("mainColorTheme"))
                                     .padding(EdgeInsets(top: 10, leading: 3, bottom: 10, trailing: 0))
                                 // Image
-                                AnyView(tabs[row].icon)
+                                Text(tabs[row].icon)
                                     .foregroundColor(Color("mainColorTheme"))
                                     .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0))
                             }
@@ -64,9 +64,9 @@ struct SlidingTabs: View {
 
 struct SlidigTabView_Previews: PreviewProvider {
     let tabs : [Tab] = [
-        .init(icon: Image(systemName: "globe"), title: "Whats New?"),
-        .init(icon: Image(systemName: "globe"),title: "My Info"),
-        .init(icon: Image(systemName: "globe"),title: "Completed")
+        .init(icon: "", title: "Whats New?"),
+        .init(icon: "",title: "My Info"),
+        .init(icon: "",title: "Completed")
     ]
     @State private var selectedTab: Int = 0
     

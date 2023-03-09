@@ -22,20 +22,69 @@ class UserModel: ObservableObject {
             mobileNum: "012345678",
             currentJob: "programmer",
             fullAddress: "jalan melawati",
-            image:  (UIImage(named: "aliffirfan"))!
-        )
+            image:  (UIImage(named: "aliffirfan"))!,
+            about: "Jika ku bukan yang terbaik buatmu, ku harap kamu jumpa yang dapat membuatkan kamu bahagia"
+        ),
+            PenggunaModel(
+                email: "test",
+                password: "123",
+                fullName: "TouFix",
+                profileName: "TouFix",
+                Age: "25",
+                mobileNum: "60125819575",
+                currentJob: "Library Of Tun Uda Manager",
+                fullAddress: "no.40, lorong melawati",
+                image: UIImage(named: "toufix")!,
+                about: "Would like to greeting you all to come or stop-by at my house. Don't forget to bring any potluck that we can share-it, we sit, and we enjoy to last bit."
+            ),
+            PenggunaModel(
+                email: "test",
+                password: "123",
+                fullName: "Hariz",
+                profileName: "Hariz",
+                Age: "22",
+                mobileNum: "60117504345",
+                currentJob: "Mechanic",
+                fullAddress: "no.24, lorong melawati",
+                image: UIImage(named: "hariz")!,
+                about: "We are normally feed in the morning and evening and spend most of the day resting under cover along the banks."
+            ),
+            PenggunaModel(
+                email: "test",
+                password: "123",
+                fullName: "Danish",
+                profileName: "Danish",
+                Age: "30",
+                mobileNum: "60183818725",
+                currentJob: "Driver",
+                fullAddress: "no.14, lorong melawati",
+                image: UIImage(named: "danish")!,
+                about: "Duckling is a baby duck. We usually learn to swim by following our mother to a body of water."
+            ),
+            PenggunaModel(
+                email: "test",
+                password: "123",
+                fullName: "Muaz",
+                profileName: "Muaz",
+                Age: "28",
+                mobileNum: "60183545796",
+                currentJob: "Driver",
+                fullAddress: "no.10, lorong melawati",
+                image: UIImage(named: "muaz")!,
+                about: "Tokey udang geragau nombor satu di Malaysia."
+            )
     ]
  
     @Published var newInfos = [
        Info(
         name: "Ahmad Naufal",
-        details: "Saya ada info dari jiran sebelah, anak kucing mereka kena langgar dengan kerbau pak jamal semalam",
+        details: "Saya ada info dari jiran sebelah, van jiran saya kena langgar dengan kereta myvi depan kedai jiran saya semalam",
         image: (UIImage(named: "eksiden"))!,
-        title: "",
+        title: "Eksiden kereta ",
         date: Date(),
-        description: "",
-        contactNum: "",
-        personName: ""),
+        description: "jiran kata kejadian berlaku pagi tadi, tapi saya pelik kenapa myvi yang langgar tu boleh duduk atas van jiran saya",
+        contactNum: "01212322212",
+        personName: "Ahmad Naufal"),
        Info(
         name: "Danish",
         details: "Kucing saya hilang semalam",

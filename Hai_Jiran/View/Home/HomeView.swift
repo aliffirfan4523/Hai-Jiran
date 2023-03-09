@@ -11,9 +11,9 @@ class HomeViewModel: ObservableObject {
     @Published var selectedTab: Int = 0
     
     let tabs: [Tab] = [
-        .init(icon: Image(systemName: "globe"), title: "Whats New?"),
-        .init(icon: Image(systemName: "globe"),title: "My Info"),
-        .init(icon: Image(systemName: "globe"),title: "Completed")
+        .init(icon: String(UserModel().newInfos.count), title: "Whats New?"),
+        .init(icon: String(UserModel().myInfos.count),title: "My Info"),
+        .init(icon: String(UserModel().completedInfos.count),title: "Completed")
     ]
     
     func getSelectedTabView(info: UserModel) -> AnyView {

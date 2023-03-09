@@ -11,38 +11,38 @@ import SwiftUI
 
 struct CompletedChatRow1_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceRow(Resident: testData[0])
+        ServiceRow(Resident: UserModel().UserList[0])
     }
 }
 
 struct ServiceRow: View {
     
-    var Resident: TeamMember
+    var Resident: PenggunaModel
     
     var body: some View {
         
         NavigationLink(value: Resident) {
             HStack{
-                Image(Resident.photoName).resizable()
-                    .frame(width: 100, height: 64)
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-                    .overlay {
-                        Circle().stroke(.white, lineWidth: 2)
-                    }
-                    .shadow(radius: 7)
+                if let data = Resident.image, let uiImage = UIImage(data: data) {
+                    Image(uiImage: uiImage).resizable().resizable()
+                        .aspectRatio( contentMode:.fit)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(
+                            .white, lineWidth: 4))
+                        .shadow(radius: 7)
+                }
                 Spacer().frame(width: 20)
                 VStack{
-                    Text(Resident.name)
+                    Text(Resident.fullName)
                         .font(.system(size: 25,weight: .bold))
                         .lineLimit(2)
                         .foregroundColor(Color("textTheme"))
                     .cornerRadius(15)
                     HStack {
-                        Text(Resident.workType)
+                        Text(Resident.currentJob)
                             .font(.system(size: 15))
                         .foregroundColor(.gray)
-                        Text(Resident.address)
+                        Text(Resident.fullAddress)
                             .font(.system(size: 15))
                         .foregroundColor(.gray)
                     }

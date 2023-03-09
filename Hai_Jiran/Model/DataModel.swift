@@ -15,7 +15,7 @@ import SwiftUI
 
 
 
-struct PenggunaModel : Identifiable, Codable{
+struct PenggunaModel : Identifiable, Codable, Hashable{
 
     var id = UUID()
     var email:String = ""
@@ -27,8 +27,9 @@ struct PenggunaModel : Identifiable, Codable{
     var currentJob:String = ""
     var fullAddress:String = ""
     var image: Data?
+    var about: String = ""
     
-    init(email: String, password: String, fullName: String, profileName: String, Age: String, mobileNum: String, currentJob: String, fullAddress: String, image: UIImage) {
+    init(email: String, password: String, fullName: String, profileName: String, Age: String, mobileNum: String, currentJob: String, fullAddress: String, image: UIImage, about: String) {
         self.email = email
         self.password = password
         self.fullName = fullName
@@ -38,6 +39,7 @@ struct PenggunaModel : Identifiable, Codable{
         self.currentJob = currentJob
         self.fullAddress = fullAddress
         self.image = image.pngData()
+        self.about = about
     }
     
 }
