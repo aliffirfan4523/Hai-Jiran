@@ -17,8 +17,8 @@ Main - ‘take’, ‘give’ & ‘stand’
 
 - [x] Info View
 - [x] Add Info
-- [x] Update Info
+- [ ] Update Info
 - [x] Delete Info
-- [ ] services view
+- [x] services view
 - [x] SOS view
-- [ ] Maps View
+- [x] Maps View
