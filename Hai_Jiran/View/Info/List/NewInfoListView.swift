@@ -20,33 +20,20 @@ struct NewInfoListView: View {
     var body: some View {
         NavigationStack{
             List(infoList){ info in
-                NewInfoRow(info: info,name: info.name, details: info.details)
-                    .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
-                        Button(role: .none, action: {
-                            print(info.date)
-                        selectedInfo = info
-                        }, label: {
-                            Label("Read", systemImage: "doc.text.magnifyingglass")
-                        }).tint(.green)
-                        Button(role: .cancel, action: {
-                            newInfo.share()
-                        }, label: {
-                            Label("Share", systemImage: "square.and.arrow.up")
-                        }).tint(.blue)
-                    }
-                )
-                .onTapGesture {
-                    selectedInfo = info
-                }
-                .background(
-                    NavigationLink(
-                        destination: ShowInfoView(info: selectedInfo ?? info, userData: userData.UserList[0].image),
-                        isActive: Binding(get: { selectedInfo != nil }, set: { _ in selectedInfo = nil }),
-                            label: { EmptyView()
+                NavigationLink(value:info){
+                    NewInfoRow(info: info,name: info.name, details: info.details)
+                        .swipeActions(edge: .trailing,allowsFullSwipe: false, content: {
+                            Button(role: .cancel, action: {
+                                newInfo.share()
+                            }, label: {
+                                Label("Share", systemImage: "square.and.arrow.up")
+                            }).tint(.blue)
                         }
                     )
-                )
-            }
+                }
+            }.navigationDestination(for: Info.self, destination: {
+                info in ShowInfoView(info: info,userData: userData.UserList[0].image)
+            })
             .environmentObject(userData)
             
             .listStyle(PlainListStyle())

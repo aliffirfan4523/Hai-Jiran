@@ -30,6 +30,7 @@ struct ShowInfoView: View {
                                 userData: userData)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 35, trailing: 0))
                             VStack {
+                                
                                 Text(info.name).foregroundColor(.white).bold().font(.custom("Avenier", size: 20))
                                 Text(info.contactNum).foregroundColor(.white).font(.custom("Avenier", size: 15))
                             }
@@ -41,7 +42,13 @@ struct ShowInfoView: View {
                     .frame(height: 155)
                 
                 if let data = info.image, let uiImage = UIImage(data: data) {
-                    Image(uiImage: uiImage).resizable().frame(height: 250).aspectRatio(contentMode: .fit).offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 6).cornerRadius(25).padding()
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .frame(height: 250)
+                        .aspectRatio(contentMode: .fit)
+                        .offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 6)
+                        .cornerRadius(25)
+                        .padding()
                 } else {
                     Image("blankphoto").resizable().frame(height: 250).aspectRatio(contentMode: .fit).offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 6).cornerRadius(25).padding()
                 }

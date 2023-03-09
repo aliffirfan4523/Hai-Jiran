@@ -10,35 +10,30 @@ import SwiftUI
 struct EditInfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @State var info: Info = Info(name: "", details: "", image: UIImage(), title: "", date: Date(), description: "", contactNum: "", personName: "")
-    @State private var detailsString = ""
-    @State private var titleString = ""
-    @State private var date = Date.now
-    @State private var descriptionString = ""
-    @State private var contactNumString = ""
-    @State private var image: UIImage? = UIImage()
-    @State private var PersonNameString = ""
+    @State var info: Info = Info(
+        name: "",
+        details: "",
+        image: UIImage(),
+        title: "",
+        date: Date(),
+        description: "",
+        contactNum: "",
+        personName: ""
+    )
     
-    @State private var showAlert = false
+    @State private var image: UIImage? = UIImage()
     
     @EnvironmentObject var myData: UserModel
     
-    init(info: Info) {
-            self.info = info
-            _detailsString = State(initialValue: info.details)
-            _titleString = State(initialValue: info.title)
-            _date = State(initialValue: info.date)
-            _descriptionString = State(initialValue: info.description)
-            _contactNumString = State(initialValue: info.contactNum)
-            _PersonNameString = State(initialValue: info.personName)
-        }
+    
+
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text("Edit info")
                 .font(.custom("Avenir", size: 20))
                 .bold()
-            TextEditor(text: $detailsString)
+            TextEditor(text: $info.details)
                 .overlay(RoundedRectangle(cornerRadius: 8)
                     .stroke(Color("mainColorTheme"), lineWidth: 2))
                 .frame(width: .infinity, height: 70)
@@ -51,7 +46,7 @@ struct EditInfoView: View {
                 Text("Title")
                     .font(.custom("Avenir", size: 15))
                     .bold()
-                TextField("Title", text: $titleString)
+                TextField("Title", text: $info.title)
                     .textFieldStyle(.roundedBorder)
                     .overlay(RoundedRectangle(cornerRadius: 8)
                         .stroke(Color("mainColorTheme"), lineWidth: 2))
@@ -59,7 +54,7 @@ struct EditInfoView: View {
             
             // date and time picker
             HStack {
-                DatePicker(selection: $date, in: ...Date.now, displayedComponents: .date) {
+                DatePicker(selection: $info.date, in: ...Date(), displayedComponents: .date) {
                     Text("Select a date")
                         .font(.custom("Avenir", size: 15))
                         .bold()
@@ -69,7 +64,7 @@ struct EditInfoView: View {
             Text("Describe it..")
                 .font(.custom("Avenir", size: 15))
                 .bold()
-            TextEditor(text: $descriptionString)
+            TextEditor(text: $info.description)
                 .overlay(RoundedRectangle(cornerRadius: 8)
                     .stroke(Color("mainColorTheme"), lineWidth: 2))
                 .frame(width: .infinity, height: 150)
@@ -77,70 +72,45 @@ struct EditInfoView: View {
                 Text("Contact \nNumber")
                     .font(.custom("Avenir", size: 15))
                     .bold()
-                TextField("Number", text: $contactNumString)
+                TextField("Number", text: $info.contactNum)
                     .textFieldStyle(.roundedBorder)
                     .overlay(RoundedRectangle(cornerRadius: 8)
                         .stroke(Color("mainColorTheme"), lineWidth: 2))
                 Text("Person \nName")
                     .font(.custom("Avenir", size: 15))
                     .bold()
-                TextField("Name", text: $PersonNameString)
+                TextField("Name", text: $info.personName)
                     .textFieldStyle(.roundedBorder)
                     .overlay(RoundedRectangle(cornerRadius: 8)
                         .stroke(Color("mainColorTheme"), lineWidth: 2))
             }
-            
-            /// button segmen
-            HStack {
-                Spacer(minLength: 100)
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10.0)
-                        .fill(Color.blue)
-                        .frame(width: 100, height: 35)
-                    Button("Tell them!", action: {
-                        //ContentView()
-                        tellThem(myData: myData)
-                    })
-                    .foregroundColor(.white).bold()
-                }
-            }.environmentObject(myData)
-            Spacer()
-        }.padding(30)
-            .alert(isPresented: $showAlert) {
-                        Alert(title: Text("Error"), message: Text("Please fill in all required fields."), dismissButton: .default(Text("OK")))
-                    }
-    }
-    
-    func tellThem(myData: UserModel) {
-        // Check if any of the required fields is empty
-        guard !detailsString.isEmpty, !titleString.isEmpty, !descriptionString.isEmpty, !contactNumString.isEmpty, !PersonNameString.isEmpty else {
-            showAlert = true
-            return
+            Button(action: {
+                info.image = image?.pngData()
+                //myData.updateInfo(info)
+                update(info: info)
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Text("Save")
+                    .font(.custom("Avenir", size: 15))
+                    .bold()
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, minHeight: 50)
+            })
+            .background(Color("mainColorTheme"))
+            .cornerRadius(10)
+            .padding(.top, 20)
+            .padding(.bottom, 10)
+            .padding(.horizontal, 20)
         }
-        
-        // Update the info object with the values entered by the user
-        info.details = detailsString
-        info.title = titleString
-        info.date = date
-        info.description = descriptionString
-        info.contactNum = contactNumString
-        info.personName = PersonNameString
-        
+        .padding(.horizontal, 20)
+        .onAppear(perform: {
+            self.image = UIImage(data: info.image!) ?? UIImage(named: "ahmadalbab")!
+        })
+    }
+    func update(info:Info){
         if let index = myData.myInfos.firstIndex(where: { $0.id == info.id }) {
-            // Replace the old info object with the updated one
             myData.myInfos.replaceSubrange(index...index, with: [info])
-        } else {
-            // Add the new info object to the array
-            myData.myInfos.append(info)
+            myData.newInfos.replaceSubrange(index...index, with: [info])
         }
-        
-        // Close the page
-        presentationMode.wrappedValue.dismiss()
-    }
-
-}
-struct ContenstView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environmentObject(UserModel())
     }
 }

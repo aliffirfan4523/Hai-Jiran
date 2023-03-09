@@ -13,6 +13,8 @@ struct MyInfoListView: View {
     @State private var isSwiped = false
     @State private var showDetail = false
     
+    
+    
     @EnvironmentObject var myInfo: UserModel
 
     var infoList : [Info] = []
@@ -61,7 +63,8 @@ struct MyInfoListView: View {
         }
     }
     func add(info: Info) {
-
         myInfo.completedInfos.append(info)
     }
 }
+
+
