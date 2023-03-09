@@ -16,13 +16,13 @@ class UserModel: ObservableObject {
         PenggunaModel(
             email: "test",
             password: "123",
-            fullName: "Ahmad Albab",
-            profileName: "ahmad albab",
+            fullName: "Aliff Irfan",
+            profileName: "Aliff Irfan",
             Age: "20",
             mobileNum: "012345678",
             currentJob: "programmer",
-            fullAddress: "jalan binjai",
-            image:  (UIImage(named: "ahmadalbab"))!
+            fullAddress: "jalan melawati",
+            image:  (UIImage(named: "aliffirfan"))!
         )
     ]
  
@@ -39,7 +39,7 @@ class UserModel: ObservableObject {
        Info(
         name: "Danish",
         details: "Kucing saya hilang semalam",
-        image: (UIImage(named: "eksiden"))!,
+        image: (UIImage(named: "kucingdanish"))!,
         title: "Kucing Hilang",
         date: Date(),
         description: "Kucing saya hilang semalam, warna kucing saya oren putih. Harap sesiapa yang ternampak telefon saya",
@@ -48,7 +48,7 @@ class UserModel: ObservableObject {
        Info(
         name: "Kamal Arifin",
         details: "Gerai kopi baru",
-        image: (UIImage(named: "eksiden"))!,
+        image: (UIImage(named: "geraikopi"))!,
         title: "Gerai kopi baru",
         date: Date(),
         description: "Gerai kopi baru",
@@ -57,7 +57,7 @@ class UserModel: ObservableObject {
        Info(
         name: "Syahir Kunafa",
         details: "Sesiapa yang kehilangan telefon boleh hubungi saya, jenama telefon tidak diketahui, kamera segi empat",
-        image: (UIImage(named: "eksiden"))!,
+        image: (UIImage(named: "telefonhilang"))!,
         title: "Telefon yang dijumpai",
         date: Date(),
         description: "Saya terjumpa di depan gerai nasi lemak pak ahmad, kalau mahu mengambil telefon ini, sila hubungi saya atau boleh mesej guna whatsapp",
@@ -66,7 +66,7 @@ class UserModel: ObservableObject {
        Info(
         name: "Ahmad Albab",
         details: "Majlis kahwin",
-        image: (UIImage(named: "eksiden"))!,
+        image: (UIImage(named: "kadkahwin"))!,
         title: "Saya membuat majlis perkahwinan anak saya di depan rumah saya",
         date: Date(),
         description: "Saya menjemput kejiranan untuk menghadiri majlis perkahwinan anak saya",

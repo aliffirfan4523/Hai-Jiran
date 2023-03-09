@@ -11,7 +11,7 @@ extension Color {
     static let ui = Color.UI()
     
     struct UI {
-        let primary = Color("maincolor")
+        let primary = Color.white
     }
 }
 

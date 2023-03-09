@@ -58,7 +58,7 @@ struct Info: Codable, Identifiable, Hashable {
         self.id = id
         self.name = name
         self.details = details
-        self.image = image.pngData()
+        self.image = image.jpegData(compressionQuality: 0.2)
         self.title = title
         self.date = date
         self.description = description

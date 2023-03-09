@@ -111,27 +111,27 @@ struct UpdateProfileView: View {
     }
     
     func confirm() {
-        var user = myData.UserList[0]
+        
         if !fullname.isEmpty {
-            user.fullName = fullname
+            myData.UserList[0].fullName = fullname
         }
         if !profileName.isEmpty {
-            user.profileName = profileName
+            myData.UserList[0].profileName = profileName
         }
         if !Age.isEmpty {
-            user.userAge = Age
+            myData.UserList[0].userAge = Age
         }
         if !mobileNumber.isEmpty {
-            user.mobileNum = mobileNumber
+            myData.UserList[0].mobileNum = mobileNumber
         }
         if !currentJob.isEmpty {
-            user.currentJob = currentJob
+            myData.UserList[0].currentJob = currentJob
         }
         if !fullAddress.isEmpty {
-            user.fullAddress = fullAddress
+            myData.UserList[0].fullAddress = fullAddress
         }
-        print(user.profileName)
-        print(user)
+       // print(user.profileName)
+        //print(user)
         presentationMode.wrappedValue.dismiss()
     }
     

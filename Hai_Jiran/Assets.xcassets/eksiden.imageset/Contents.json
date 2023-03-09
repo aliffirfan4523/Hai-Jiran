@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "eksiden.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "eksiden_11zon.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

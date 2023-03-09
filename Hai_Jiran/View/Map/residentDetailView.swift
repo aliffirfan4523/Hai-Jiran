@@ -24,13 +24,18 @@ struct TouFixDetailView: View {
             )
             .edgesIgnoringSafeArea(.top)
             VStack {
-                Image(selectedTeamMember.photoName)
-                    .resizable()
-                    .aspectRatio( contentMode:.fit)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(
-                        .white, lineWidth: 4))
-                    .shadow(radius: 7)
+                if let image = UIImage(named: selectedTeamMember.photoName),
+                   let imageData = image.jpegData(compressionQuality: 0.0) {
+                    let compressedImage = UIImage(data: imageData)
+                    Image(uiImage: compressedImage!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(.white, lineWidth: 4))
+                        .shadow(radius: 7)
+                } else {
+                    // Handle invalid image name or data
+                }
                 Text(selectedTeamMember.name)
                     .font(.title)
                     .foregroundColor(.black)
@@ -45,7 +50,7 @@ struct TouFixDetailView: View {
                 }
                 HStack(alignment: .top, spacing: 10){
                     Button(action: {
-                        print("Check my full bio at Web.")
+                        //print("Check my full bio at Web.")
                         if let phoneURL = URL(string: "tel:\(selectedTeamMember.phone)") {
                             UIApplication.shared.open(phoneURL)
                         }
@@ -63,7 +68,7 @@ struct TouFixDetailView: View {
                         if let link = URL(string:"https://wa.me/\(selectedTeamMember.phone)") {
                             UIApplication.shared.open(link)
                         }
-                        print("Text me at Whatsapp")
+                        //print("Text me at Whatsapp")
                     }) {
                         Image(systemName: "ellipsis.bubble.fill")
                             .frame(maxWidth: 25, maxHeight: 25)

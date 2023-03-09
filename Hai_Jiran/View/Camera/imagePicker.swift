@@ -23,9 +23,9 @@ class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImageP
         
         if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             // Rotate image to correct orientation
-            let orientedImage = UIImage(cgImage: uiImage.cgImage!, scale: uiImage.scale, orientation: .up)
+            //let orientedImage = UIImage(cgImage: uiImage.cgImage!, scale: uiImage.scale, orientation: .up)
             
-            let compressedImage = orientedImage.jpegData(compressionQuality: 0.5)
+            let compressedImage = uiImage.jpegData(compressionQuality: 0.0)
             
             image = UIImage(data: compressedImage!)
             isShown = false
