@@ -1,4 +1,4 @@
-# Hai_Jiran
+# Hai Jiran
 
 In a community main problem will be the communication in term of information in the community especially important information which if use WhatsApp group will be unprioritize and a mix up with unimportant information. Thus we wanted to have a system that will help user to create a community in an app and will able to share information in one place
 
