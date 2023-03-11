@@ -13,12 +13,12 @@ Main - ‘take’, ‘give’ & ‘stand’
 2. **Give** - information of closing road, death, open house, community event, etc.
 3. **Stand** - contact and reliable community organization example Ketua Taman and other AJK.
 
-### View needed to completed before wednesday
+This app is created by team Hi-5 which is consists of :-
 
-- [x] Info View
-- [x] Add Info
-- [ ] Update Info
-- [x] Delete Info
-- [x] services view
-- [x] SOS view
-- [x] Maps View
+ - Toufix - our team leader a.k.a CEO of HaiJiran
+ - Aliff - Our enginner
+ - Hariz - Our enginner
+ - Muaz - Our designer
+ - Danish - Our designer
+
+This apps prototype was created in 3 weeks which is quite impossible to created for every apps whether android, iOS or any else
